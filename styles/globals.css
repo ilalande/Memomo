@@ -1,3 +1,4 @@
+/* -----------RESET STYLES --------------*/
 /* Reset styles from https://www.joshwcomeau.com/css/custom-css-reset/ */
 
 *,
@@ -65,4 +66,37 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+/* -----------COLOR THEME --------------*/
+:root {
+  --main-color-dark: hsl(223, 8%, 18%);
+  --second-color-lighter: hsl(64, 82%, 72%);
+  --third-color-darker: hsl(249, 64%, 56%);
+  --light-color-white: hsl(0, 0%, 100%);
+}
+
+/* -----------GENERAL LAYOUT ON ALL PAGES --------------*/
+
+body {
+  background-color: var(--main-color-dark);
+  color: var(--light-color-white);
+  font-family: var(--font-rounded-elegance);
+  border: 10px solid var(--second-color-lighter);
+}
+
+a:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+#logo {
+  font-family: var(--font-tondu);
+  font-size: 3rem;
+  color: var(--third-color-darker);
+  border-radius: 1px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.4rem;
+  background-color: var(--second-color-lighter);
 }
