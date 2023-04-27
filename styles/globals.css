@@ -74,6 +74,9 @@ h6 {
   --second-color-lighter: hsl(64, 82%, 72%);
   --third-color-darker: hsl(249, 64%, 56%);
   --light-color-white: hsl(0, 0%, 100%);
+  --post-it-1: hsl(1, 99, 74);
+  --post-it-2: hsl(191, 51, 54);
+  --post-it-3: hsl(249, 64%, 56%);
 }
 
 /* -----------GENERAL LAYOUT ON ALL PAGES --------------*/
@@ -82,21 +85,30 @@ body {
   background-color: var(--main-color-dark);
   color: var(--light-color-white);
   font-family: var(--font-rounded-elegance);
-  border: 10px solid var(--second-color-lighter);
 }
 
 a:hover {
-  opacity: 0.6;
   cursor: pointer;
+}
+a {
+  text-decoration: none;
 }
 
 #logo {
   font-family: var(--font-tondu);
-  font-size: 3rem;
   color: var(--third-color-darker);
   border-radius: 1px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.4rem;
+  padding: 0.4rem 1rem 0 1rem;
+  margin: 0.5rem;
   background-color: var(--second-color-lighter);
+}
+.plusButton {
+  border: 5px solid;
+  font-weight: 900;
+  font-family: var(--font-tondu);
+  border-radius: 2px;
+  padding: 0.5rem;
+}
+button {
+  background: transparent;
 }

@@ -1,0 +1,35 @@
+.boardHeader {
+  border: 1px solid green;
+}
+.boardHeader header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.boardHeader h1 {
+  font-weight: 800;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-family: var(--font-tondu);
+  color: hsl(64, 82%, 72%);
+  padding: 1rem;
+}
+.plusButtonOnBoard {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.memo1 {
+  border-color: hsl(1, 99%, 74%);
+  color: hsl(1, 99%, 74%);
+  /* background-color: red; */
+}
+.memo2 {
+  border-color: hsl(191, 51%, 54%);
+  color: hsl(191, 51%, 54%);
+}
+.memo3 {
+  border-color: hsl(64, 82%, 72%);
+  color: hsl(64, 82%, 72%);
+}
