@@ -2,15 +2,28 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import styles from '@styles/Home.module.css';
+import { getBoardsFromApi } from '../requests/boards';
 
 // const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const [boardNameEntered, setboardNameEntered] = useState(['']);
-  const createBoard = (e) => {
+  const saveBoardName = (e) => {
     setboardNameEntered(e.target.value);
   };
-  console.log(boardNameEntered);
+
+  const addBoard = async () => {
+    try {
+      const boards = await getBoardsFromApi();
+      if (boards) {
+        const dataBoardsFromApi = boards.data;
+        console.log(dataBoardsFromApi);
+      }
+    } catch (error) {
+      return console.log(error.response.data.message);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -32,11 +45,12 @@ export default function Home() {
           type='text'
           id='boardName'
           className={styles.boardNameEnter}
-          onBlur={createBoard}
+          onBlur={saveBoardName}
         />
         <Link
           href={`/${boardNameEntered}`}
           className={`plusButton ${styles.plusButtonHome}`}
+          onClick={addBoard}
         >
           &nbsp; + &nbsp;
         </Link>
