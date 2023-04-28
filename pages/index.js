@@ -2,9 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import styles from '@styles/Home.module.css';
-import { getBoardsFromApi } from '../requests/boards';
-
-// const inter = Inter({ subsets: ['latin'] });
+import { getBoardsRequest, addBoardsRequest } from '../requests/boards';
 
 export default function Home() {
   const [boardNameEntered, setboardNameEntered] = useState(['']);
@@ -14,13 +12,23 @@ export default function Home() {
 
   const addBoard = async () => {
     try {
-      const boards = await getBoardsFromApi();
+      const boards = await getBoardsRequest();
+      let existingBoard = false;
       if (boards) {
         const dataBoardsFromApi = boards.data;
-        console.log(dataBoardsFromApi);
+        dataBoardsFromApi.map((board) => {
+          if (boardNameEntered === board.board_name) {
+            existingBoard = true;
+          }
+        });
+        if (!existingBoard) {
+          console.log('bloup');
+          const body = { boardName: boardNameEntered };
+          addBoardsRequest(body);
+        }
       }
     } catch (error) {
-      return console.log(error.response.data.message);
+      return console.log(error);
     }
   };
 
