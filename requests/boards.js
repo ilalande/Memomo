@@ -13,16 +13,5 @@ export const getBoardByNameRequest = async (name) => {
 
 export const addBoardsRequest = async (boardDatas) => {
   const boardName = boardDatas.boardName;
-  const { data } = await axios.get(
-    `${process.env.NEXT_PUBLIC_APISERVER}/boards/byboardname/${boardName}`
-  );
-  if (data) {
-    return data;
-  } else {
-    console.log('bloup');
-    return axios.post(
-      `${process.env.NEXT_PUBLIC_APISERVER}/boards`,
-      boardDatas
-    );
-  }
+  return axios.post(`${process.env.NEXT_PUBLIC_APISERVER}/boards`, boardDatas);
 };

@@ -2,28 +2,26 @@ import { useRouter } from 'next/router';
 import styles from '@styles/Board.module.css';
 import { useEffect, useState } from 'react';
 import { getBoardByNameRequest } from '../requests/boards';
-import { getMemosByBoardId } from '../requests/memos';
-import MemoCard from '../components/nav';
+import { getMemosByBoardName } from '../requests/memos';
+import MemoCard from '../components/memoCard';
 
 export default function Board() {
   const router = useRouter();
   const { boardName } = router.query;
 
   const [boardDatas, setBoardDatas] = useState(null);
-  const [memos, setMemos] = useState(null);
 
   const getBoardDatas = async (name) => {
-    const { data } = await getBoardByNameRequest(name);
-    return data[0];
+    const { data } = await getMemosByBoardName(name);
+    return data;
   };
 
-  const getMemosDatas = async (name) => {
-    if (boardDatas) {
-      const { id } = boardDatas;
-      const { data } = await getMemosByBoardId(id);
-      return data;
-    }
-  };
+  // const getMemosDatas = async () => {
+  //   const { id } = boardDatas;
+  //   const { data } = await getMemosByBoardId(id);
+  //   console.log(data);
+  //   setMemos(data);
+  // };
 
   useEffect(() => {
     getBoardDatas(boardName).then((data) => {
@@ -32,14 +30,8 @@ export default function Board() {
   }, []);
 
   useEffect(() => {
-    getMemosDatas().then((data) => {
-      setMemos(data);
-    });
+    console.log(boardDatas);
   }, [boardDatas]);
-
-  useEffect(() => {
-    console.log(memos[0]);
-  }, [memos]);
 
   return (
     <>
@@ -77,8 +69,8 @@ export default function Board() {
       </div>
       <div className={styles.memosList}>
         <p>bloup</p>bip
-        {/* {memos ? (
-          memos.map((memo) => {
+        {boardDatas ? (
+          boardDatas.map((memo) => {
             return (
               <MemoCard
                 key={memo.id}
@@ -89,8 +81,10 @@ export default function Board() {
             );
           })
         ) : (
-          <></>
-        )} */}
+          <>
+            <p>loupé</p>
+          </>
+        )}
       </div>
     </>
   );

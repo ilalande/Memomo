@@ -12,28 +12,25 @@ export default function Home() {
 
   const addBoard = async () => {
     try {
-      const boards = await getBoardsRequest();
+      //Get all boards
+      const { data } = await getBoardsRequest();
       let existingBoard = false;
-      let boardDatas = null;
-      if (boards) {
-        const dataBoardsFromApi = boards.data;
-        dataBoardsFromApi.map((board) => {
+
+      // if a board with boardNameEntered exists, nothing happens (just the link).
+      //if no existing board is found, one is created in database
+      if (data) {
+        data.map((board) => {
           if (boardNameEntered === board.board_name) {
-            boardDatas = board;
+            existingBoard = true;
+
+            return;
           }
         });
         if (!existingBoard) {
           const body = { boardName: boardNameEntered };
+          console.log(body);
           const res = await addBoardsRequest(body);
-
-          const insertId = res.data.resSql.insertId;
-          if (res) {
-            boardDatas = { id: insertId, board_name: boardName };
-          } else {
-            console.log('There is a problem with creation of the board');
-          }
         }
-        return boardDatas;
       }
     } catch (error) {
       return error;
