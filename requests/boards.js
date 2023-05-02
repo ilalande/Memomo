@@ -1,11 +1,28 @@
 import axios from 'axios';
 
 export const getBoardsRequest = async () => {
-  console.log(`${process.env.NEXT_PUBLIC_APISERVER}/boards`);
   return axios.get(`${process.env.NEXT_PUBLIC_APISERVER}/boards`);
 };
-export const addBoardsRequest = async (boardDatas) => {
-  console.log(boardDatas);
+export const getBoardByNameRequest = async (name) => {
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_APISERVER}/boards/byboardname/${name}`
+  );
 
-  return axios.post(`${process.env.NEXT_PUBLIC_APISERVER}/boards`, boardDatas);
+  return res;
+};
+
+export const addBoardsRequest = async (boardDatas) => {
+  const boardName = boardDatas.boardName;
+  const { data } = await axios.get(
+    `${process.env.NEXT_PUBLIC_APISERVER}/boards/byboardname/${boardName}`
+  );
+  if (data) {
+    return data;
+  } else {
+    console.log('bloup');
+    return axios.post(
+      `${process.env.NEXT_PUBLIC_APISERVER}/boards`,
+      boardDatas
+    );
+  }
 };

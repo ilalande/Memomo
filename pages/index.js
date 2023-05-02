@@ -14,21 +14,29 @@ export default function Home() {
     try {
       const boards = await getBoardsRequest();
       let existingBoard = false;
+      let boardDatas = null;
       if (boards) {
         const dataBoardsFromApi = boards.data;
         dataBoardsFromApi.map((board) => {
           if (boardNameEntered === board.board_name) {
-            existingBoard = true;
+            boardDatas = board;
           }
         });
         if (!existingBoard) {
-          console.log('bloup');
           const body = { boardName: boardNameEntered };
-          addBoardsRequest(body);
+          const res = await addBoardsRequest(body);
+
+          const insertId = res.data.resSql.insertId;
+          if (res) {
+            boardDatas = { id: insertId, board_name: boardName };
+          } else {
+            console.log('There is a problem with creation of the board');
+          }
         }
+        return boardDatas;
       }
     } catch (error) {
-      return console.log(error);
+      return error;
     }
   };
 

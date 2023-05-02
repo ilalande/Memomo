@@ -33,3 +33,9 @@
   border-color: hsl(64, 82%, 72%);
   color: hsl(64, 82%, 72%);
 }
+.memosList {
+  width: 50%;
+  margin: auto;
+  border: 1px solid green;
+  color: red;
+}
