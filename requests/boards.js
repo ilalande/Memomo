@@ -7,7 +7,6 @@ export const getBoardByNameRequest = async (name) => {
   const res = await axios.get(
     `${process.env.NEXT_PUBLIC_APISERVER}/boards/byboardname/${name}`
   );
-
   return res;
 };
 
