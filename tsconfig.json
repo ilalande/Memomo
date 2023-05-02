@@ -23,8 +23,7 @@
       "@public": ["public"],
       "@custom-types/*": ["custom-types/*"],
       "@custom-types": ["custom-types"],
-      "@redux/*": ["redux/*"],
-      "@redux": ["redux"],
+
       "@prisma/*": ["prisma/*"],
       "@prisma": ["prisma"],
       "@utils/*": ["utils/*"],
