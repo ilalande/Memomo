@@ -28,6 +28,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
+
 /*
   6. Improve media defaults
 */
@@ -92,6 +93,10 @@ a:hover {
 }
 a {
   text-decoration: none;
+}
+
+body {
+  border: 3px solid hsl(249, 64%, 56%);
 }
 
 #logo {

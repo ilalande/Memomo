@@ -1,5 +1,8 @@
+/* HEADER : title and add buttons to add memos */
+
 .boardHeader {
   border: 1px solid green;
+  height: 15%;
 }
 .boardHeader header {
   display: flex;
@@ -20,22 +23,30 @@
   margin: 1rem;
 }
 
-.memo1 {
+.addMemo1 {
   border-color: hsl(1, 99%, 74%);
   color: hsl(1, 99%, 74%);
   /* background-color: red; */
 }
-.memo2 {
+.addMemo2 {
   border-color: hsl(191, 51%, 54%);
   color: hsl(191, 51%, 54%);
 }
-.memo3 {
+.addMemo3 {
   border-color: hsl(64, 82%, 72%);
   color: hsl(64, 82%, 72%);
 }
-.memosList {
-  width: 50%;
+/* BOARD AREA : existing memod znd possibility to handle them */
+.boardarea {
+  min-width: 200px;
+  padding-top: 2rem;
+  width: 85%;
   margin: auto;
-  border: 1px solid green;
-  color: red;
+  border-radius: 1.5rem;
+}
+
+.memosList {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid red;
 }

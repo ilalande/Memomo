@@ -1,3 +1,22 @@
-.boardArea {
-  border: 5px solid green;
+.memo {
+  width: 15%;
+  height: 15vh;
+  min-width: 70px;
+  margin: 0.7rem;
+  margin-top: 0;
+  border-radius: 1.5rem;
+  font-family: var(--font-rounded-elegance);
+  padding: 1rem;
+  border: 5px solid;
+}
+
+.colour1 {
+  border-color: hsl(191, 51%, 54%);
+}
+.colour2 {
+  border-color: hsl(1, 99%, 74%);
+}
+
+.colour3 {
+  border-color: yellow;
 }
