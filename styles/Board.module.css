@@ -1,7 +1,6 @@
 /* HEADER : title and add buttons to add memos */
 
 .boardHeader {
-  border: 1px solid green;
   height: 15%;
 }
 .boardHeader header {
@@ -23,12 +22,12 @@
   margin: 1rem;
 }
 
-.addMemo1 {
+.addMemo2 {
   border-color: hsl(1, 99%, 74%);
   color: hsl(1, 99%, 74%);
   /* background-color: red; */
 }
-.addMemo2 {
+.addMemo1 {
   border-color: hsl(191, 51%, 54%);
   color: hsl(191, 51%, 54%);
 }
@@ -48,5 +47,4 @@
 .memosList {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid red;
 }

@@ -2,7 +2,11 @@ import { useRouter } from 'next/router';
 import styles from '@styles/Board.module.css';
 import { useEffect, useState } from 'react';
 import { getBoardByNameRequest } from '../requests/boards';
-import { getMemosByBoardId } from '../requests/memos';
+import {
+  getMemosByBoardId,
+  addMemoRequest,
+  deleteMemoRequest,
+} from '../requests/memos';
 import MemoCard from '../components/memoCard';
 
 export default function Board() {
@@ -14,32 +18,42 @@ export default function Board() {
   // function for API calls
   const getBoardDatas = async (name) => {
     const { data } = await getBoardByNameRequest(name);
-    return data[0];
+    setBoardDatas(data[0]);
   };
 
   const getMemosDatas = async (id) => {
     const { data } = await getMemosByBoardId(id);
-    return data;
+    setMemosDatas(data);
   };
 
   // API calls on page loading : charging board name and id and memos existing in the board
   useEffect(() => {
-    getBoardDatas(boardName).then((data) => {
-      setBoardDatas(data);
-    });
+    getBoardDatas(boardName);
   }, [boardName]);
 
   useEffect(() => {
     if (boardDatas) {
-      getMemosDatas(boardDatas.id).then((data) => {
-        setMemosDatas(data);
-      });
+      getMemosDatas(boardDatas.id);
     }
   }, [boardDatas]);
 
-  useEffect(() => {
-    console.log(memosDatas);
-  }, [memosDatas]);
+  // Function to add memos
+  const addMemo = (colourId) => {
+    const body = {
+      colour: colourId,
+      content: '',
+      board: boardDatas.id,
+    };
+    addMemoRequest(body).then(() => {
+      getMemosDatas(boardDatas.id);
+    });
+  };
+  // Function to delete memos
+  const deleteMemo = (id) => {
+    deleteMemoRequest(id).then(() => {
+      getMemosDatas(boardDatas.id);
+    });
+  };
 
   return (
     <>
@@ -49,8 +63,11 @@ export default function Board() {
           <div className={styles.plusButtonOnBoard}>
             <button
               type='text'
-              alt='Créez un nouveau mémo rose'
-              className={`plusButton  ${styles.addMemo1}`}
+              alt='Créez un nouveau mémo rose '
+              className={`plusButton  ${styles.addMemo2}`}
+              onClick={() => {
+                addMemo(2);
+              }}
             >
               &nbsp; + &nbsp;
             </button>
@@ -58,8 +75,11 @@ export default function Board() {
           <div className={styles.plusButtonOnBoard}>
             <button
               type='text'
-              alt='Créez un nouveau mémo rose'
-              className={`plusButton  ${styles.addMemo2}`}
+              alt='Créez un nouveau mémo vert'
+              className={`plusButton  ${styles.addMemo1}`}
+              onClick={() => {
+                addMemo(1);
+              }}
             >
               &nbsp; + &nbsp;
             </button>
@@ -69,6 +89,9 @@ export default function Board() {
               type='text'
               alt='Créez un nouveau mémo rose'
               className={`plusButton  ${styles.addMemo3}`}
+              onClick={() => {
+                addMemo(3);
+              }}
             >
               &nbsp; + &nbsp;
             </button>
@@ -86,6 +109,7 @@ export default function Board() {
                   boardId={memo.memo_board_id}
                   content={memo.memo_content}
                   colour={memo.memo_colour_id}
+                  deleteMemo={deleteMemo}
                 />
               );
             })

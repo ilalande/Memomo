@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styles from '../../styles/MemoCard.module.css';
 import { putMemoRequest } from '../../requests/memos';
 
-export default function Memocard({ id, content, colour, boardId }) {
+export default function Memocard({ id, content, colour, boardId, deleteMemo }) {
   const [colourClass, setColourClass] = useState('');
   const [memoContent, setMemoContent] = useState(content);
   const fillMemo = (e) => {
@@ -10,6 +11,7 @@ export default function Memocard({ id, content, colour, boardId }) {
       return e.target.value;
     });
   };
+
   const putMemoInDb = async (content) => {
     const body = {
       id: id,
@@ -30,14 +32,30 @@ export default function Memocard({ id, content, colour, boardId }) {
 
   return (
     <div className={`${styles.memo} ${styles[colourClass]}`}>
-      <input
-        className={styles.colourClass}
-        type='text'
-        id={id}
-        onChange={(e) => fillMemo(e)}
-        onBlur={putMemoInDb}
-        value={memoContent}
-      />
+      <div className={styles.memoText}>
+        <textarea
+          className={styles.colourClass}
+          type='text'
+          id={id}
+          onChange={(e) => fillMemo(e)}
+          onBlur={putMemoInDb}
+          value={memoContent}
+        />
+      </div>
+      <div className={styles.memoImg}>
+        <button
+          onClick={() => {
+            deleteMemo(id);
+          }}
+        >
+          <Image
+            src='/XMark.svg'
+            width={25}
+            height={25}
+            alt='X to delete the memo'
+          />
+        </button>
+      </div>
     </div>
   );
 }

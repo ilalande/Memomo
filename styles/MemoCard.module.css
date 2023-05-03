@@ -6,18 +6,31 @@
   margin-top: 0;
   border-radius: 1.5rem;
   font-family: var(--font-rounded-elegance);
-  padding: 1rem;
   border: 5px solid;
+  display: flex;
 }
 
-.colour1 input,
-.colour2 input,
-.colour3 input {
+.memoImg button {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  border: none;
+}
+
+.memoText {
+  padding: 0.4rem 0.4rem 0.4rem 1rem;
+}
+.colour1 textarea,
+.colour2 textarea,
+.colour3 textarea {
   background-color: transparent;
   color: white;
   border: none;
   width: 99%;
+  height: 100%;
+  resize: vertical;
 }
+
 .colour1 {
   border-color: hsl(191, 51%, 54%);
 }
@@ -26,5 +39,5 @@
 }
 
 .colour3 {
-  border-color: yellow;
+  border-color: hsl(64, 82%, 72%);
 }
