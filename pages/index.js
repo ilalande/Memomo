@@ -2,15 +2,40 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import styles from '@styles/Home.module.css';
-
-// const inter = Inter({ subsets: ['latin'] });
+import { getBoardsRequest, addBoardsRequest } from '../requests/boards';
 
 export default function Home() {
   const [boardNameEntered, setboardNameEntered] = useState(['']);
-  const createBoard = (e) => {
+  const saveBoardName = (e) => {
     setboardNameEntered(e.target.value);
   };
-  console.log(boardNameEntered);
+
+  const addBoard = async () => {
+    try {
+      //Get all boards
+      const { data } = await getBoardsRequest();
+      let existingBoard = false;
+
+      // if a board with boardNameEntered exists, nothing happens (just the link).
+      //if no existing board is found, one is created in database
+      if (data) {
+        data.map((board) => {
+          if (boardNameEntered === board.board_name) {
+            existingBoard = true;
+
+            return;
+          }
+        });
+        if (!existingBoard) {
+          const body = { boardName: boardNameEntered };
+          const res = await addBoardsRequest(body);
+        }
+      }
+    } catch (error) {
+      return error;
+    }
+  };
+
   return (
     <>
       <Head>
@@ -32,11 +57,12 @@ export default function Home() {
           type='text'
           id='boardName'
           className={styles.boardNameEnter}
-          onBlur={createBoard}
+          onBlur={saveBoardName}
         />
         <Link
           href={`/${boardNameEntered}`}
           className={`plusButton ${styles.plusButtonHome}`}
+          onClick={addBoard}
         >
           &nbsp; + &nbsp;
         </Link>

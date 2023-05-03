@@ -1,0 +1,43 @@
+.memo {
+  width: 15%;
+  height: 15vh;
+  min-width: 70px;
+  margin: 0.7rem;
+  margin-top: 0;
+  border-radius: 1.5rem;
+  font-family: var(--font-rounded-elegance);
+  border: 5px solid;
+  display: flex;
+}
+
+.memoImg button {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  border: none;
+}
+
+.memoText {
+  padding: 0.4rem 0.4rem 0.4rem 1rem;
+}
+.colour1 textarea,
+.colour2 textarea,
+.colour3 textarea {
+  background-color: transparent;
+  color: white;
+  border: none;
+  width: 99%;
+  height: 100%;
+  resize: vertical;
+}
+
+.colour1 {
+  border-color: hsl(191, 51%, 54%);
+}
+.colour2 {
+  border-color: hsl(1, 99%, 74%);
+}
+
+.colour3 {
+  border-color: hsl(64, 82%, 72%);
+}
