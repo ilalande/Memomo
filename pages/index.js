@@ -28,7 +28,6 @@ export default function Home() {
         });
         if (!existingBoard) {
           const body = { boardName: boardNameEntered };
-          console.log(body);
           const res = await addBoardsRequest(body);
         }
       }

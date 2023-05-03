@@ -16,7 +16,27 @@ export const getMemosByBoardId = async (boardId) => {
   );
   return res;
 };
+export const addMemoRequest = async (body) => {
+  const res = await axios.post(
+    `${process.env.NEXT_PUBLIC_APISERVER}/memos`,
+    body
+  );
+  return res;
+};
 
-export const addBoardsRequest = async (memosData) => {
-  return axios.post(`${process.env.NEXT_PUBLIC_APISERVER}/memos`, memosData);
+export const putMemoRequest = async (body) => {
+  const res = await axios.put(
+    `${process.env.NEXT_PUBLIC_APISERVER}/memos/${body.id}`,
+    body
+  );
+
+  return res;
+};
+
+export const deleteMemoRequest = async (memoId) => {
+  const res = await axios.delete(
+    `${process.env.NEXT_PUBLIC_APISERVER}/memos/${memoId}`
+  );
+
+  return res;
 };
