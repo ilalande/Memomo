@@ -10,6 +10,14 @@
   border: 5px solid;
 }
 
+.colour1 input,
+.colour2 input,
+.colour3 input {
+  background-color: transparent;
+  color: white;
+  border: none;
+  width: 99%;
+}
 .colour1 {
   border-color: hsl(191, 51%, 54%);
 }

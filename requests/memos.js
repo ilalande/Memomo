@@ -17,6 +17,11 @@ export const getMemosByBoardId = async (boardId) => {
   return res;
 };
 
-export const addBoardsRequest = async (memosData) => {
-  return axios.post(`${process.env.NEXT_PUBLIC_APISERVER}/memos`, memosData);
+export const putMemoRequest = async (body) => {
+  const res = await axios.put(
+    `${process.env.NEXT_PUBLIC_APISERVER}/memos/${body.id}`,
+    body
+  );
+
+  return res;
 };

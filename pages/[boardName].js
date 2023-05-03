@@ -83,6 +83,7 @@ export default function Board() {
                 <MemoCard
                   key={memo.id}
                   id={memo.id}
+                  boardId={memo.memo_board_id}
                   content={memo.memo_content}
                   colour={memo.memo_colour_id}
                 />
