@@ -1,10 +1,23 @@
+.mainWrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  height: 100vh;
+  font-family: var(--font-rounded-elegance);
+  /* To fix menu at left size */
+  align-items: start;
+}
 .main {
+  font-family: var(--font-rounded-elegance);
+  font-family: var(--font-rounded-elegance);
+
+  height: 100%;
+  margin: auto;
+  min-width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  font-family: var(--font-rounded-elegance);
 }
 .logoHome {
   font-size: 3rem;

@@ -22,6 +22,10 @@
   margin: 1rem;
 }
 
+.plusButtonOnBoard button:hover {
+  cursor: pointer;
+}
+
 .addMemo2 {
   border-color: hsl(1, 99%, 74%);
   color: hsl(1, 99%, 74%);

@@ -1,0 +1,39 @@
+.nav {
+  font-family: var(--font-rounded-elegance);
+}
+.nav li {
+  padding: 0.4rem;
+  color: white;
+  margin: 0 0 0s.5rem 0;
+  padding: 1rem;
+}
+
+.nav img {
+  margin-right: 0.3rem;
+}
+
+.nav a {
+  color: white;
+  padding: 0;
+  /* To manage disposition with image */
+  width: 100%;
+  display: flex;
+}
+
+.nav a:hover {
+  opacity: 60%;
+}
+.nav ul {
+  padding: 1rem;
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  justify-content: flex-end;
+}
+
+.aboutLink {
+  margin-right: 3rem;
+}
+.boardLink {
+  font-size: 0.8rem;
+}

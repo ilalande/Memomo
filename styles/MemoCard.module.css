@@ -16,6 +16,9 @@
   padding: 0.5rem;
   border: none;
 }
+.memoImg button:hover {
+  cursor: pointer;
+}
 
 .memoText {
   padding: 0.4rem 0.4rem 0.4rem 1rem;

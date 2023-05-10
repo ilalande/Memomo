@@ -26,7 +26,7 @@ export default function Board() {
     setMemosDatas(data);
   };
 
-  // API calls on page loading : charging board name and id and memos existing in the board
+  // API calls on page loading :loading board name and id and memos existing in the board
   useEffect(() => {
     getBoardDatas(boardName);
   }, [boardName]);
@@ -114,9 +114,7 @@ export default function Board() {
               );
             })
           ) : (
-            <>
-              <p>loupé</p>
-            </>
+            <></>
           )}
         </div>
       </div>
