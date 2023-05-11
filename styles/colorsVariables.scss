@@ -1,0 +1,17 @@
+$main-color-dark: hsl(223, 8%, 18%);
+$second-color-lighter: hsl(64, 82%, 72%);
+$third-color-darker: hsl(249, 64%, 56%);
+$light-color-white: hsl(0, 0%, 100%);
+$memo-1: hsl(191, 51%, 54%);
+$memo-2: hsl(1, 99%, 74%);
+$memo-3: hsl(64, 82%, 72%);
+
+:export {
+  mainColorDark: $main-color-dark;
+  secondColorLighter: $second-color-lighter;
+  thirdColorDarker: $third-color-darker;
+  lightColorWhite: $light-color-white;
+  memo1: $memo-1;
+  memo2: $memo-2;
+  memo3: $memo-3;
+}

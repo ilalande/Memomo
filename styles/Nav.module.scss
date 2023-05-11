@@ -1,0 +1,52 @@
+@import '/styles/colorsVariables.scss';
+@import '/styles/responsive.scss';
+.nav {
+  font-family: var(--font-rounded-elegance);
+  margin-left: 2rem;
+}
+.nav li {
+  padding: 0.4rem;
+  color: $light-color-white;
+  margin: 0 0 0s.5rem 0;
+  padding: 1rem;
+}
+
+.nav img {
+  margin-right: 0.3rem;
+}
+
+.nav a {
+  color: $light-color-white;
+  padding: 0;
+  /* To manage disposition with image */
+  width: 100%;
+  display: flex;
+}
+
+.nav a:hover {
+  opacity: 60%;
+}
+.nav ul {
+  padding: 1rem;
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  justify-content: flex-end;
+}
+
+.generalLink {
+  margin-right: 3rem;
+  font-size: 0.8rem;
+}
+.boardLink {
+  font-size: 0.6rem;
+}
+
+@media #{$laptop-up} {
+  .generalLink {
+    font-size: 1rem;
+  }
+  .boardLink {
+    font-size: 0.8rem;
+  }
+}

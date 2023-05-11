@@ -1,4 +1,6 @@
 /* HEADER : title and add buttons to add memos */
+@import '/styles/colorsVariables.scss';
+@import '/styles/globalClasses.scss';
 
 .boardHeader {
   height: 15%;
@@ -14,7 +16,7 @@
   font-size: 2.5rem;
   text-transform: uppercase;
   font-family: var(--font-tondu);
-  color: hsl(64, 82%, 72%);
+  color: $second-color-lighter;
   padding: 1rem;
 }
 .plusButtonOnBoard {
@@ -22,18 +24,25 @@
   margin: 1rem;
 }
 
+.plusButtonOnBoard button:hover {
+  cursor: pointer;
+}
+
 .addMemo2 {
-  border-color: hsl(1, 99%, 74%);
-  color: hsl(1, 99%, 74%);
+  @extend .plusButton;
+  border-color: $memo-2;
+  color: $memo-2;
   /* background-color: red; */
 }
 .addMemo1 {
-  border-color: hsl(191, 51%, 54%);
-  color: hsl(191, 51%, 54%);
+  @extend .plusButton;
+  border-color: $memo-1;
+  color: $memo-1;
 }
 .addMemo3 {
-  border-color: hsl(64, 82%, 72%);
-  color: hsl(64, 82%, 72%);
+  @extend .plusButton;
+  border-color: $memo-3;
+  color: $memo-3;
 }
 /* BOARD AREA : existing memod znd possibility to handle them */
 .boardarea {

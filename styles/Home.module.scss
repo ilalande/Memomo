@@ -1,0 +1,29 @@
+@import '/styles/colorsVariables.scss';
+@import '/styles/globalClasses.scss';
+
+.boardNameEnter {
+  font-size: 1.8rem;
+  height: 2rem;
+  min-width: 200px;
+  margin: 2rem;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-bottom: 2px dashed $light-color-white;
+  color: $light-color-white;
+  padding: 1rem 0.5rem 1.5rem 0.5rem;
+}
+.boardNameEnter:focus {
+  border: 2px solid $third-color-darker;
+}
+.plusButtonHome {
+  @extend .plusButton;
+  border-color: $third-color-darker;
+  color: $third-color-darker;
+  background-color: $second-color-lighter;
+}
+.plusButtonHome:hover {
+  border: $second-color-lighter;
+  color: $second-color-lighter;
+  background-color: $third-color-darker;
+}

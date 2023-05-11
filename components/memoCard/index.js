@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import styles from '../../styles/MemoCard.module.css';
+import styles from '../../styles/MemoCard.module.scss';
 import { putMemoRequest } from '../../requests/memos';
 
 export default function Memocard({ id, content, colour, boardId, deleteMemo }) {

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import styles from '@styles/Board.module.css';
+import styles from '@styles/Board.module.scss';
 import { useEffect, useState } from 'react';
 import { getBoardByNameRequest } from '../requests/boards';
 import {
@@ -26,7 +26,7 @@ export default function Board() {
     setMemosDatas(data);
   };
 
-  // API calls on page loading : charging board name and id and memos existing in the board
+  // API calls on page loading :loading board name and id and memos existing in the board
   useEffect(() => {
     getBoardDatas(boardName);
   }, [boardName]);
@@ -38,21 +38,19 @@ export default function Board() {
   }, [boardDatas]);
 
   // Function to add memos
-  const addMemo = (colourId) => {
+  const addMemo = async (colourId) => {
     const body = {
       colour: colourId,
       content: '',
       board: boardDatas.id,
     };
-    addMemoRequest(body).then(() => {
-      getMemosDatas(boardDatas.id);
-    });
+    await addMemoRequest(body);
+    await getMemosDatas(boardDatas.id);
   };
   // Function to delete memos
-  const deleteMemo = (id) => {
-    deleteMemoRequest(id).then(() => {
-      getMemosDatas(boardDatas.id);
-    });
+  const deleteMemo = async (id) => {
+    await deleteMemoRequest(id);
+    await getMemosDatas(boardDatas.id);
   };
 
   return (
@@ -64,7 +62,7 @@ export default function Board() {
             <button
               type='text'
               alt='Créez un nouveau mémo rose '
-              className={`plusButton  ${styles.addMemo2}`}
+              className={`${styles.addMemo2}`}
               onClick={() => {
                 addMemo(2);
               }}
@@ -76,7 +74,7 @@ export default function Board() {
             <button
               type='text'
               alt='Créez un nouveau mémo vert'
-              className={`plusButton  ${styles.addMemo1}`}
+              className={styles.addMemo1}
               onClick={() => {
                 addMemo(1);
               }}
@@ -88,7 +86,7 @@ export default function Board() {
             <button
               type='text'
               alt='Créez un nouveau mémo rose'
-              className={`plusButton  ${styles.addMemo3}`}
+              className={styles.addMemo3}
               onClick={() => {
                 addMemo(3);
               }}
@@ -114,9 +112,7 @@ export default function Board() {
               );
             })
           ) : (
-            <>
-              <p>loupé</p>
-            </>
+            <></>
           )}
         </div>
       </div>
