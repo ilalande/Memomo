@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../../styles/Nav.module.css';
+import styles from '../../styles/Nav.module.scss';
 
 export default function Nav({ boards }) {
   return (
     <nav className={styles.nav}>
       <ul>
-        <li>
+        <li className={styles.generalLink}>
           <Link href='/'>
             <Image
               src='/home.svg'
@@ -17,7 +17,7 @@ export default function Nav({ boards }) {
             <span>Home</span>
           </Link>
         </li>
-        <li className={styles.aboutLink}>
+        <li className={styles.generalLink}>
           <Link href='/about'>
             <Image
               src='/help-circle.svg'

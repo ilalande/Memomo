@@ -1,9 +1,12 @@
+@import '/styles/colorsVariables.scss';
+@import '/styles/responsive.scss';
 .nav {
   font-family: var(--font-rounded-elegance);
+  margin-left: 2rem;
 }
 .nav li {
   padding: 0.4rem;
-  color: white;
+  color: $light-color-white;
   margin: 0 0 0s.5rem 0;
   padding: 1rem;
 }
@@ -13,7 +16,7 @@
 }
 
 .nav a {
-  color: white;
+  color: $light-color-white;
   padding: 0;
   /* To manage disposition with image */
   width: 100%;
@@ -31,9 +34,19 @@
   justify-content: flex-end;
 }
 
-.aboutLink {
+.generalLink {
   margin-right: 3rem;
+  font-size: 0.8rem;
 }
 .boardLink {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
+}
+
+@media #{$laptop-up} {
+  .generalLink {
+    font-size: 1rem;
+  }
+  .boardLink {
+    font-size: 0.8rem;
+  }
 }

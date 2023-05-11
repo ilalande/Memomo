@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import styles from '@styles/Home.module.css';
+import styles from '@styles/Home.module.scss';
 import { getBoardsRequest, addBoardsRequest } from '../requests/boards';
 import Nav from '../components/nav/index';
 export default function Home() {
@@ -60,6 +60,7 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+
       <div className={styles.mainWrapper}>
         <Nav boards={boardsList} />
         <main className={styles.main}>
@@ -76,7 +77,7 @@ export default function Home() {
           />
           <Link
             href={`/${boardNameEntered}`}
-            className={`plusButton ${styles.plusButtonHome}`}
+            className={styles.plusButtonHome}
             onClick={addBoard}
           >
             &nbsp; + &nbsp;

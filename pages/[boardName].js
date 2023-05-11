@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import styles from '@styles/Board.module.css';
+import styles from '@styles/Board.module.scss';
 import { useEffect, useState } from 'react';
 import { getBoardByNameRequest } from '../requests/boards';
 import {
@@ -62,7 +62,7 @@ export default function Board() {
             <button
               type='text'
               alt='Créez un nouveau mémo rose '
-              className={`plusButton  ${styles.addMemo2}`}
+              className={`${styles.addMemo2}`}
               onClick={() => {
                 addMemo(2);
               }}
@@ -74,7 +74,7 @@ export default function Board() {
             <button
               type='text'
               alt='Créez un nouveau mémo vert'
-              className={`plusButton  ${styles.addMemo1}`}
+              className={styles.addMemo1}
               onClick={() => {
                 addMemo(1);
               }}
@@ -86,7 +86,7 @@ export default function Board() {
             <button
               type='text'
               alt='Créez un nouveau mémo rose'
-              className={`plusButton  ${styles.addMemo3}`}
+              className={styles.addMemo3}
               onClick={() => {
                 addMemo(3);
               }}

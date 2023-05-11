@@ -1,3 +1,4 @@
+@import '/styles/colorsVariables.scss';
 .memo {
   width: 15%;
   height: 15vh;
@@ -12,7 +13,7 @@
 
 .memoImg button {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-;
   padding: 0.5rem;
   border: none;
 }
@@ -27,7 +28,7 @@
 .colour2 textarea,
 .colour3 textarea {
   background-color: transparent;
-  color: white;
+  color: $light-color-white;
   border: none;
   width: 99%;
   height: 100%;
@@ -35,12 +36,12 @@
 }
 
 .colour1 {
-  border-color: hsl(191, 51%, 54%);
+  border-color: $memo-1;
 }
 .colour2 {
-  border-color: hsl(1, 99%, 74%);
+  border-color: $memo-2;
 }
 
 .colour3 {
-  border-color: hsl(64, 82%, 72%);
+  border-color: $memo-3;
 }

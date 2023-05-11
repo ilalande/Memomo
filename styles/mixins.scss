@@ -1,0 +1,15 @@
+@mixin logo {
+  font-family: var(--font-tondu);
+  color: $third-color-darker;
+  border-radius: 1px;
+  padding: 0.4rem 1rem 0 1rem;
+  margin: 0.5rem;
+  background-color: $second-color-lighter;
+}
+@mixin plusButton {
+  border: 5px solid;
+  font-weight: 900;
+  font-family: var(--font-tondu);
+  border-radius: 2px;
+  padding: 0.5rem;
+}
