@@ -1,4 +1,4 @@
-@mixin logo {
+.logo {
   font-family: var(--font-tondu);
   color: $third-color-darker;
   border-radius: 1px;
@@ -6,7 +6,7 @@
   margin: 0.5rem;
   background-color: $second-color-lighter;
 }
-@mixin plusButton {
+.plusButton {
   border: 5px solid;
   font-weight: 900;
   font-family: var(--font-tondu);

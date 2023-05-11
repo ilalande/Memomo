@@ -1,33 +1,6 @@
 @import '/styles/colorsVariables.scss';
-@import '/styles/mixins.scss';
-.mainWrapper {
-  border: 3px solid $third-color-darker;
-  display: flex;
-  flex-direction: column-reverse;
-  width: 100%;
-  height: 100vh;
-  max-width: 1250px;
-  font-family: var(--font-rounded-elegance);
-  /* To fix menu at left size */
-  align-items: flex-start;
-  margin: 0 auto;
-}
-.main {
-  font-family: var(--font-rounded-elegance);
-  font-family: var(--font-rounded-elegance);
-  max-width: 750px;
-  margin: 0 auto;
-  height: 100%;
+@import '/styles/globalClasses.scss';
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.logoHome {
-  @include logo;
-  font-size: 3rem;
-}
 .boardNameEnter {
   font-size: 1.8rem;
   height: 2rem;
@@ -37,7 +10,6 @@
   background: transparent;
   border: none;
   border-bottom: 2px dashed $light-color-white;
-
   color: $light-color-white;
   padding: 1rem 0.5rem 1.5rem 0.5rem;
 }
@@ -45,6 +17,7 @@
   border: 2px solid $third-color-darker;
 }
 .plusButtonHome {
+  @extend .plusButton;
   border-color: $third-color-darker;
   color: $third-color-darker;
   background-color: $second-color-lighter;
