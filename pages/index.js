@@ -13,8 +13,12 @@ export default function Home() {
   };
   // function for API calls
   const getBoards = async () => {
-    const { data } = await getBoardsRequest();
-    setBoardsList(data);
+    try {
+      const { data } = await getBoardsRequest();
+      setBoardsList(data);
+    } catch (error) {
+      throw error;
+    }
   };
 
   // API calls on page loading : loading boards

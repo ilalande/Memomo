@@ -38,21 +38,19 @@ export default function Board() {
   }, [boardDatas]);
 
   // Function to add memos
-  const addMemo = (colourId) => {
+  const addMemo = async (colourId) => {
     const body = {
       colour: colourId,
       content: '',
       board: boardDatas.id,
     };
-    addMemoRequest(body).then(() => {
-      getMemosDatas(boardDatas.id);
-    });
+    await addMemoRequest(body);
+    await getMemosDatas(boardDatas.id);
   };
   // Function to delete memos
-  const deleteMemo = (id) => {
-    deleteMemoRequest(id).then(() => {
-      getMemosDatas(boardDatas.id);
-    });
+  const deleteMemo = async (id) => {
+    await deleteMemoRequest(id);
+    await getMemosDatas(boardDatas.id);
   };
 
   return (

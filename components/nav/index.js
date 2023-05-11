@@ -31,7 +31,7 @@ export default function Nav({ boards }) {
         {boards ? (
           boards.map((board) => {
             return (
-              <li className={styles.boardLink}>
+              <li className={styles.boardLink} key={board.id}>
                 <Link href={`/${board.board_name}`}>
                   <Image
                     src='/bookmark.svg'
