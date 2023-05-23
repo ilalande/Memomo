@@ -12,7 +12,6 @@ import PlusMemoButton from '../../components/plusMemoButton/index';
 // from https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export async function generateStaticParams() {
   const { data } = await getBoardsRequest();
-
   return data.map((board) => ({
     boardName: board.board_name,
   }));
@@ -21,12 +20,12 @@ export async function generateStaticParams() {
 export default async function Board({ params }) {
   const { boardName } = params;
 
-  //  API call in Server Side Component
+  // API call in Server Side Component
   const resboardDatas = await getBoardByNameRequest(boardName);
   const boardDatas = resboardDatas.data[0];
   const resMemosFromBoard = await getMemosByBoardId(boardDatas.id);
   const memosDatas = resMemosFromBoard.data;
-  console.log(`memosDatas : ${JSON.stringify(memosDatas)}`);
+
   // Function to delete memos
   const deleteMemo = async (id) => {
     await deleteMemoRequest(id);
@@ -39,7 +38,9 @@ export default async function Board({ params }) {
         <div className={styles.boardHeader}>
           <header>
             <h1>{boardName}</h1>
-            <PlusMemoButton />
+            <PlusMemoButton boardDatas={boardDatas} colorId='1' />
+            <PlusMemoButton boardDatas={boardDatas} colorId='2' />
+            <PlusMemoButton boardDatas={boardDatas} colorId='3' />
           </header>
         </div>
         <div className={styles.boardarea}>

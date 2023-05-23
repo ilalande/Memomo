@@ -1,6 +1,5 @@
 import Nav from '../components/nav/index';
 import './globals.scss';
-import { siteConfig } from '../config/site';
 
 // Defining font
 import localFont from '@next/font/local';
@@ -18,10 +17,10 @@ const tondu = localFont({
 
 export const metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: 'MEMOMO',
+    // template: `%s | MEMOMO`,
   },
-  description: siteConfig.description,
+  description: 'Création de tableaux personnels contenant des listes',
   keywords: ['Next.js', 'React', 'Memo board'],
   authors: [
     {
@@ -29,16 +28,6 @@ export const metadata = {
       url: 'https://www.linkedin.com/in/juliane-casier-bb642832/',
     },
   ],
-  creator: 'shadcn',
-
-  openGraph: {
-    type: 'website',
-    locale: 'fr_FR',
-    // url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
 };
 const PrimaryLayout = ({ children }) => {
   return (

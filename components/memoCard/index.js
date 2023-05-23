@@ -29,7 +29,6 @@ export default function Memocard({ id, content, colour, boardId }) {
 
   useEffect(() => {
     setColourClass(`colour${colour}`);
-    console.log(memoContent);
   }, []);
 
   return (
