@@ -1,9 +1,10 @@
+'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import styles from '../../styles/MemoCard.module.scss';
-import { putMemoRequest } from '../../requests/memos';
+import styles from '../../../styles/MemoCard.module.scss';
+import { putMemoRequest } from '../../../lib/requestsDatas';
 
-export default function Memocard({ id, content, colour, boardId, deleteMemo }) {
+export default function Memocard({ id, content, colour, boardId }) {
   const [colourClass, setColourClass] = useState('');
   const [memoContent, setMemoContent] = useState(content);
   const fillMemo = (e) => {
@@ -35,18 +36,18 @@ export default function Memocard({ id, content, colour, boardId, deleteMemo }) {
       <div className={styles.memoText}>
         <textarea
           className={styles.colourClass}
-          type='text'
           id={id}
           onChange={(e) => fillMemo(e)}
           onBlur={putMemoInDb}
           value={memoContent}
         />
       </div>
-      <div className={styles.memoImg}>
+      {/* <div className={styles.memoImg}>
         <button
           onClick={() => {
             deleteMemo(id);
           }}
+          type="image"
         >
           <Image
             src='/XMark.svg'
@@ -55,7 +56,7 @@ export default function Memocard({ id, content, colour, boardId, deleteMemo }) {
             alt='X to delete the memo'
           />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

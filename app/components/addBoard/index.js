@@ -1,10 +1,11 @@
-import Head from 'next/head';
+'use client';
+import { useState } from 'react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import styles from '@styles/Home.module.scss';
-import { addBoardsRequest } from '../requests/boards';
-import PrimaryLayout from '../components/primaryLayout';
-export default function Home() {
+import styles from '../../../styles/AddBoard.module.scss';
+
+import { addBoardsRequest } from '../../../lib/requestsDatas';
+
+export default function AddBoard({ boardsList }) {
   const [boardNameEntered, setboardNameEntered] = useState(['']);
 
   const saveBoardName = (e) => {
@@ -30,26 +31,21 @@ export default function Home() {
       const res = await addBoardsRequest(body);
     }
   };
-
   return (
     <>
-      <PrimaryLayout>
-        <p>Créez votre tableau</p>
-
-        <input
-          type='text'
-          id='boardName'
-          className={styles.boardNameEnter}
-          onBlur={saveBoardName}
-        />
-        <Link
-          href={`/${boardNameEntered}`}
-          className={styles.plusButtonHome}
-          onClick={addBoard}
-        >
-          &nbsp; + &nbsp;
-        </Link>
-      </PrimaryLayout>
+      <input
+        type='text'
+        id='boardName'
+        className={styles.boardNameEnter}
+        onBlur={saveBoardName}
+      />
+      <Link
+        href={`/${boardNameEntered}`}
+        className={styles.plusButtonHome}
+        onClick={addBoard}
+      >
+        &nbsp; + &nbsp;
+      </Link>
     </>
   );
 }

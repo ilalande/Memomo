@@ -1,13 +1,21 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../../styles/Nav.module.scss';
+import styles from '../../../styles/Nav.module.scss';
+import { getBoardsRequest } from 'lib/requestsDatas';
 
-export default function Nav({ boards }) {
+// const dataList=transform(data);
+
+export default async function Nav() {
+  // // API calls on page loading : loading boards (Server Side Component)
+  // https://nextjs.org/docs/app/building-your-application/data-fetching/fetching
+  const { data } = await getBoardsRequest();
   return (
     <nav className={styles.nav}>
       <ul>
         <li className={styles.generalLink}>
           <Link href='/'>
+            {/* To improve ecoconception, use UTF-8 symbols instead. Used like that to apply accessibility concepts
+            https://www.w3schools.com/charsets/ref_utf_symbols.asp */}
             <Image
               src='/home.svg'
               width={25}
@@ -28,8 +36,8 @@ export default function Nav({ boards }) {
             <span>A propos</span>
           </Link>
         </li>
-        {boards ? (
-          boards.map((board) => {
+        {data ? (
+          data.map((board) => {
             return (
               <li className={styles.boardLink} key={board.id}>
                 <Link href={`/${board.board_name}`}>

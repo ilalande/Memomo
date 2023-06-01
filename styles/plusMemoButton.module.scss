@@ -1,0 +1,28 @@
+/* HEADER : title and add buttons to add memos */
+@import '/styles/colorsVariables.scss';
+@import '/styles/globalClasses.scss';
+
+.plusButtonOnBoard {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.plusButtonOnBoard button:hover {
+  cursor: pointer;
+}
+
+.addMemo2 {
+  @extend .plusButton;
+  border-color: $memo-2;
+  color: $memo-2;
+}
+.addMemo1 {
+  @extend .plusButton;
+  border-color: $memo-1;
+  color: $memo-1;
+}
+.addMemo3 {
+  @extend .plusButton;
+  border-color: $memo-3;
+  color: $memo-3;
+}

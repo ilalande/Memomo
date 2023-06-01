@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,20 +20,53 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@Components/*": ["Components/*"],
-      "@Components": ["Components"],
-      "@styles/*": ["styles/*"],
-      "@styles": ["styles"],
-      "@public": ["public"],
-      "@custom-types/*": ["custom-types/*"],
-      "@custom-types": ["custom-types"],
-
-      "@prisma/*": ["prisma/*"],
-      "@prisma": ["prisma"],
-      "@utils/*": ["utils/*"],
-      "@utils": ["utils"]
-    }
+      "@Components/*": [
+        "Components/*"
+      ],
+      "@Components": [
+        "Components"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@styles": [
+        "styles"
+      ],
+      "@public": [
+        "public"
+      ],
+      "@custom-types/*": [
+        "custom-types/*"
+      ],
+      "@custom-types": [
+        "custom-types"
+      ],
+      "@prisma/*": [
+        "prisma/*"
+      ],
+      "@prisma": [
+        "prisma"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@utils": [
+        "utils"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
