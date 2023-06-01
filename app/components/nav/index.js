@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../../styles/Nav.module.scss';
+import styles from '../../../styles/Nav.module.scss';
 import { getBoardsRequest } from 'lib/requestsDatas';
 
 // const dataList=transform(data);
@@ -14,6 +14,8 @@ export default async function Nav() {
       <ul>
         <li className={styles.generalLink}>
           <Link href='/'>
+            {/* To improve ecoconception, use UTF-8 symbols instead. Used like that to apply accessibility concepts
+            https://www.w3schools.com/charsets/ref_utf_symbols.asp */}
             <Image
               src='/home.svg'
               width={25}

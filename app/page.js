@@ -1,5 +1,5 @@
 import './globals.scss';
-import AddBoard from '../components/addBoard';
+import AddBoard from './components/addBoard';
 import { getBoardsRequest } from '../lib/requestsDatas';
 
 export default async function Home() {

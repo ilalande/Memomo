@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from '../../styles/AddBoard.module.scss';
+import styles from '../../../styles/AddBoard.module.scss';
 
-import { addBoardsRequest } from '../../lib/requestsDatas';
+import { addBoardsRequest } from '../../../lib/requestsDatas';
 
 export default function AddBoard({ boardsList }) {
   const [boardNameEntered, setboardNameEntered] = useState(['']);

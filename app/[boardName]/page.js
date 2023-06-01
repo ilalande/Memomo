@@ -5,8 +5,8 @@ import {
   getMemosByBoardId,
   deleteMemoRequest,
 } from '../../lib/requestsDatas';
-import MemoCard from '../../components/memoCard';
-import PlusMemoButton from '../../components/plusMemoButton/index';
+import MemoCard from '../components/memoCard';
+import PlusMemoButton from '../components/plusMemoButton/index';
 
 // to statically generate routes at build time instead of on-demand at request time.
 // from https://nextjs.org/docs/app/api-reference/functions/generate-static-params
@@ -19,18 +19,23 @@ export async function generateStaticParams() {
 
 export default async function Board({ params }) {
   const { boardName } = params;
-
+  let memosDatas;
+  let boardDatas;
   // API call in Server Side Component
-  const resboardDatas = await getBoardByNameRequest(boardName);
-  const boardDatas = resboardDatas.data[0];
-  const resMemosFromBoard = await getMemosByBoardId(boardDatas.id);
-  const memosDatas = resMemosFromBoard.data;
+  try {
+    const resboardDatas = await getBoardByNameRequest(boardName);
+    boardDatas = resboardDatas.data[0];
+    const resMemosFromBoard = await getMemosByBoardId(boardDatas.id);
+    memosDatas = resMemosFromBoard.data;
+  } catch (error) {
+    console.error(error);
+  }
 
   // Function to delete memos
-  const deleteMemo = async (id) => {
-    await deleteMemoRequest(id);
-    await getMemosDatas(boardDatas.id);
-  };
+  // const deleteMemo = async (id) => {
+  //   await deleteMemoRequest(id);
+  //   await getMemosDatas(boardDatas.id);
+  // };
 
   return (
     <>
@@ -62,6 +67,9 @@ export default async function Board({ params }) {
               <></>
             )}
           </div>
+          {/* <div className={styles.boardarea}>
+          <BoardArea memosDatas={memosDatas} />
+        </div> */}
         </div>
       </div>
     </>
