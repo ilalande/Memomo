@@ -1,9 +1,14 @@
 'use client';
+import { useTransition } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from '../../../styles/plusMemoButton.module.scss';
 import { addMemoRequest, getMemosByBoardId } from '../../../lib/requestsDatas';
-import { useEffect, useState } from 'react';
 
 export default function PlusMemoButton({ boardDatas, colorId, memosDatas }) {
+  const router = useRouter();
+  // See doc about useTRansition in react 18 https://react.dev/reference/react/useTransition
+  const [isPending, startTransition] = useTransition();
+
   // Function to add memos
   const getMemosDatas = async (id) => {
     const { data } = await getMemosByBoardId(id);
@@ -18,7 +23,11 @@ export default function PlusMemoButton({ boardDatas, colorId, memosDatas }) {
       board: boardDatas.id,
     };
     await addMemoRequest(body);
-    await getMemosByBoardId(boardDatas.id);
+    startTransition(() => {
+      // Refresh the current route and fetch new data from the server without
+      // losing client-side browser or React state.
+      router.refresh();
+    });
   };
 
   return (

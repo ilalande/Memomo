@@ -3,9 +3,14 @@ import AddBoard from './components/addBoard';
 import { getBoardsRequest } from '../lib/requestsDatas';
 
 export default async function Home() {
-  const resBoards = await getBoardsRequest();
-  const boardsList = resBoards.data;
-
+  let resBoards;
+  let boardsList;
+  try {
+    resBoards = await getBoardsRequest();
+    boardsList = resBoards.data;
+  } catch (error) {
+    console.error(error);
+  }
   return (
     <>
       <main className='main'>

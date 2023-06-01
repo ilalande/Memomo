@@ -4,7 +4,7 @@ import {
   getBoardByNameRequest,
   getMemosByBoardId,
 } from '../../lib/requestsDatas';
-import BoardArea from '../components/boardArea';
+import MemoCard from '../components/memoCard';
 import PlusMemoButton from '../components/plusMemoButton/index';
 
 // to statically generate routes at build time instead of on-demand at request time.
@@ -15,6 +15,12 @@ export async function generateStaticParams() {
     boardName: board.board_name,
   }));
 }
+
+// Expend metadatas from layout
+export const metadata = {
+  title: `Mon tableau`,
+  description: 'Mon tableau de mémos',
+};
 
 export default async function Board({ params }) {
   const { boardName } = params;
@@ -30,6 +36,12 @@ export default async function Board({ params }) {
     console.error(error);
   }
 
+  // Function to delete memos
+  // const deleteMemo = async (id) => {
+  //   await deleteMemoRequest(id);
+  //   await getMemosDatas(boardDatas.id);
+  // };
+
   return (
     <>
       <div className={styles.main}>
@@ -44,7 +56,20 @@ export default async function Board({ params }) {
         <div className={styles.boardarea}>
           {memosDatas ? (
             <div className={styles.boardarea}>
-              <BoardArea memosDatas={memosDatas} />
+              <div className={styles.memosList}>
+                {memosDatas.map((memo) => {
+                  return (
+                    <MemoCard
+                      key={memo.id}
+                      id={memo.id}
+                      boardId={memo.memo_board_id}
+                      content={memo.memo_content}
+                      colour={memo.memo_colour_id}
+                      // deleteMemo={deleteMemo}
+                    />
+                  );
+                })}
+              </div>
             </div>
           ) : (
             <></>

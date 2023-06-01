@@ -23,7 +23,7 @@ export const metadata = {
     template: '%s | MEMOMO',
   },
   description: 'Création de tableaux personnels contenant des listes',
-  keywords: ['Next.js', 'React', 'Memo board'],
+  keywords: ['Next.js', 'React', 'Memo board', 'Tableau de mémos'],
   authors: [
     {
       name: 'Juliane Casier',
