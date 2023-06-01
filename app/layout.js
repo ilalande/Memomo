@@ -10,13 +10,18 @@ const roundedElegance = localFont({
 const tondu = localFont({
   src: '../public/fonts/Tondu_Beta.ttf',
   variable: '--font-tondu',
+  //To avoid layout shift and insure font will always show
+  display: 'swap',
 });
 // Metadata of page /- documentation from :
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 // Inspiration from https://vercel.com/templates/next.js/taxonomy
 
 export const metadata = {
-  title: 'MEMOMO',
+  title: {
+    default: 'MEMOMO',
+    template: '%s | MEMOMO',
+  },
   description: 'Création de tableaux personnels contenant des listes',
   keywords: ['Next.js', 'React', 'Memo board'],
   authors: [
@@ -25,6 +30,20 @@ export const metadata = {
       url: 'https://www.linkedin.com/in/juliane-casier-bb642832/',
     },
   ],
+  //To improve SEO
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+    icons: {
+      shortcut: '/favicon.ico',
+    },
+  },
 };
 const PrimaryLayout = ({ children }) => {
   return (

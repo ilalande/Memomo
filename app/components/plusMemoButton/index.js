@@ -5,6 +5,12 @@ import { useEffect, useState } from 'react';
 
 export default function PlusMemoButton({ boardDatas, colorId, memosDatas }) {
   // Function to add memos
+  const getMemosDatas = async (id) => {
+    const { data } = await getMemosByBoardId(id);
+    setMemosDatas(data);
+  };
+
+  // Function to add memos
   const addMemo = async (cid) => {
     const body = {
       colour: cid,
@@ -12,6 +18,7 @@ export default function PlusMemoButton({ boardDatas, colorId, memosDatas }) {
       board: boardDatas.id,
     };
     await addMemoRequest(body);
+    await getMemosByBoardId(boardDatas.id);
   };
 
   return (
