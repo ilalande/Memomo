@@ -1,11 +1,14 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+
+import { useRouter } from 'next/navigation';
 import styles from '../../../styles/AddBoard.module.scss';
 
 import { addBoardsRequest } from '../../../lib/requestsDatas';
 
 export default function AddBoard({ boardsList }) {
+  const router = useRouter();
   const [boardNameEntered, setboardNameEntered] = useState(['']);
 
   const saveBoardName = (e) => {
@@ -22,7 +25,6 @@ export default function AddBoard({ boardsList }) {
     boardsList.map((board) => {
       if (boardNameEntered === board.board_name) {
         existingBoardEntered = true;
-
         return;
       }
     });
@@ -30,22 +32,28 @@ export default function AddBoard({ boardsList }) {
       const body = { boardName: boardNameEntered };
       const res = await addBoardsRequest(body);
     }
+    router.push(`/${boardNameEntered}`);
   };
   return (
     <>
-      <input
-        type='text'
-        id='boardName'
-        className={styles.boardNameEnter}
-        onBlur={saveBoardName}
-      />
-      <Link
-        href={`/${boardNameEntered}`}
-        className={styles.plusButtonHome}
-        onClick={addBoard}
-      >
-        &nbsp; + &nbsp;
-      </Link>
+      <form onSubmit={addBoard}>
+        <input
+          type='text'
+          id='boardName'
+          className={styles.boardNameEnter}
+          onBlur={saveBoardName}
+          aria-required='true '
+          title='Entrez le nom du tableau'
+        />
+        <button
+          type='button'
+          className={styles.plusButtonHome}
+          onClick={addBoard}
+          title="Aller sur le tableau et le créer s'il n'existe pas"
+        >
+          &nbsp; + &nbsp;
+        </button>
+      </form>
     </>
   );
 }
