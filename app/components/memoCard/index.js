@@ -40,6 +40,7 @@ export default function Memocard({ id, content, colour, boardId }) {
           onChange={(e) => fillMemo(e)}
           onBlur={putMemoInDb}
           value={memoContent}
+          title='remplissez ou modifiez ce mémo'
         />
       </div>
       {/* <div className={styles.memoImg}>
