@@ -47,13 +47,13 @@ export const metadata = {
 };
 const PrimaryLayout = ({ children }) => {
   return (
-    <html lang='fr'>
+    <html lang='fr-FR'>
       <body>
         <div
           className={`${roundedElegance.variable} ${tondu.variable} mainWrapper`}
         >
-          <Nav />
           {children}
+          <Nav />
         </div>
       </body>
     </html>

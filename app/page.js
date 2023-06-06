@@ -11,12 +11,12 @@ export default async function Home() {
   return (
     <>
       {!boardsList ? (
-        <main className='main'>
+        <main className='main' role='main'>
           <h2>Problème de chargement du serveur</h2>
         </main>
       ) : null}
       {boardsList ? (
-        <main className='main'>
+        <main className='main' role='main'>
           <h1 className='logoHome'>MEMOMO</h1>
           <p>Créez votre tableau</p>
           <AddBoard boardsList={boardsList} />

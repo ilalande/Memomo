@@ -10,9 +10,9 @@ export default async function Nav() {
   // https://nextjs.org/docs/app/building-your-application/data-fetching/fetching
   const { data } = await getBoardsRequest();
   return (
-    <nav className={styles.nav}>
-      <ul>
-        <li className={styles.generalLink}>
+    <nav className={styles.nav} role='navigation'>
+      <ul role='list'>
+        <li className={styles.generalLink} role='listitem'>
           <Link href='/'>
             {/* To improve ecoconception, use UTF-8 symbols instead. Used like that to apply accessibility concepts
             https://www.w3schools.com/charsets/ref_utf_symbols.asp */}
@@ -20,18 +20,20 @@ export default async function Nav() {
               src='/home.svg'
               width={25}
               height={25}
-              alt="retour à la page d'accueil"
+              alt=''
+              aria-hidden='true'
             />
             <span>Home</span>
           </Link>
         </li>
-        <li className={styles.generalLink}>
+        <li className={styles.generalLink} role='listitem'>
           <Link href='/about'>
             <Image
               src='/help-circle.svg'
               width={25}
               height={25}
-              alt='Lien vers la rubrique à propos'
+              alt=''
+              aria-hidden='true'
             />
             <span>A propos</span>
           </Link>
@@ -39,13 +41,14 @@ export default async function Nav() {
         {data ? (
           data.map((board) => {
             return (
-              <li className={styles.boardLink} key={board.id}>
+              <li className={styles.boardLink} key={board.id} role='listitem'>
                 <Link href={`/${board.board_name}`}>
                   <Image
                     src='/bookmark.svg'
                     width={25}
                     height={25}
-                    alt='Lien vers la rubrique à propos'
+                    alt=''
+                    aria-hidden='true'
                   />
                   <span>{board.board_name}</span>
                 </Link>
