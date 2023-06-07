@@ -45,6 +45,13 @@ export default function PlusMemoButton({ boardDatas, colorId, memosDatas }) {
           onClick={() => {
             addMemo(colorId);
           }}
+          title={
+            colorId === '1'
+              ? 'Ajouter un mémo bleu'
+              : colorId === '2'
+              ? 'Ajouter un mémo rose'
+              : 'Ajouter un mémo jaune'
+          }
         >
           &nbsp; + &nbsp;
         </button>

@@ -6,6 +6,7 @@ import {
 } from '../../lib/requestsDatas';
 import MemoCard from '../components/memoCard';
 import PlusMemoButton from '../components/plusMemoButton/index';
+import Link from 'next/link';
 
 // to statically generate routes at build time instead of on-demand at request time.
 // from https://nextjs.org/docs/app/api-reference/functions/generate-static-params
@@ -46,7 +47,10 @@ export default async function Board({ params }) {
     <>
       <div className={styles.main}>
         <div className={styles.boardHeader}>
-          <header>
+          <nav role='navigation' aria-label='Accès rapide' className='sr-only'>
+            <Link href={`${boardName}#main`}>Contenu principal</Link>
+          </nav>
+          <header role='banner'>
             <h1>{boardName}</h1>
             <PlusMemoButton boardDatas={boardDatas} colorId='1' />
             <PlusMemoButton boardDatas={boardDatas} colorId='2' />
@@ -55,7 +59,7 @@ export default async function Board({ params }) {
         </div>
         <div className={styles.boardarea}>
           {memosDatas ? (
-            <div className={styles.boardarea}>
+            <main id='main' role='main' className={styles.boardarea}>
               <div className={styles.memosList}>
                 {memosDatas.map((memo) => {
                   return (
@@ -70,7 +74,7 @@ export default async function Board({ params }) {
                   );
                 })}
               </div>
-            </div>
+            </main>
           ) : (
             <></>
           )}
