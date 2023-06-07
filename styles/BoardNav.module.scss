@@ -3,6 +3,12 @@
 .nav {
   font-family: var(--font-rounded-elegance);
   margin-left: 2rem;
+  display: flex;
+  align-items: center;
+}
+.nav ul {
+  display: flex;
+  flex-direction: column-reverse;
 }
 .nav li {
   padding: 0.4rem;

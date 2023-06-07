@@ -23,15 +23,22 @@ button {
 .mainWrapper {
   border: 3px solid $third-color-darker;
   display: flex;
-  flex-direction: column;
+
   width: 100%;
   height: 100vh;
   max-width: 1250px;
   font-family: var(--font-rounded-elegance);
   /* To fix menu at left size */
-  align-items: flex-start;
+
   margin: 0 auto;
 }
+.wrapper2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+
 .main {
   font-family: var(--font-rounded-elegance);
   font-family: var(--font-rounded-elegance);
@@ -58,4 +65,8 @@ button {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+img {
+  fill: white;
 }
