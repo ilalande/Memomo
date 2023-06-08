@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from '../../../styles/MemoCard.module.scss';
-import { putMemoRequest } from '../../../lib/requestsDatas';
+import { putMemoRequest } from '../../../utils/requestsDatas';
 
 export default function Memocard({ id, content, colour, boardId }) {
   const [colourClass, setColourClass] = useState('');

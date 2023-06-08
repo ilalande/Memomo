@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from '../../../styles/AddBoard.module.scss';
 
-import { addBoardsRequest } from '../../../lib/requestsDatas';
+import { addBoardsRequest } from '../../../utils/requestsDatas';
 
 export default function AddBoard({ boardsList }) {
   const router = useRouter();

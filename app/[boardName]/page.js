@@ -3,7 +3,7 @@ import {
   getBoardsRequest,
   getBoardByNameRequest,
   getMemosByBoardId,
-} from '../../lib/requestsDatas';
+} from '../../utils/requestsDatas';
 import MemoCard from '../components/memoCard';
 import PlusMemoButton from '../components/plusMemoButton/index';
 import Link from 'next/link';

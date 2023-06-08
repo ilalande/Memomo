@@ -2,7 +2,10 @@
 import { useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../../../styles/plusMemoButton.module.scss';
-import { addMemoRequest, getMemosByBoardId } from '../../../lib/requestsDatas';
+import {
+  addMemoRequest,
+  getMemosByBoardId,
+} from '../../../utils/requestsDatas';
 
 export default function PlusMemoButton({ boardDatas, colorId, memosDatas }) {
   const router = useRouter();

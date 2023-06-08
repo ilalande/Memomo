@@ -1,6 +1,7 @@
 /* -----------IMPORTS --------------*/
 @import '/styles/colorsVariables.scss';
 @import '/styles/reset.scss';
+@import '/styles/responsive.scss';
 @import '/styles/globalClasses.scss';
 /* -----------GENERAL LAYOUT ON ALL PAGES --------------*/
 
@@ -23,13 +24,11 @@ button {
 .mainWrapper {
   border: 3px solid $third-color-darker;
   display: flex;
-
   width: 100%;
   height: 100vh;
   max-width: 1250px;
   font-family: var(--font-rounded-elegance);
   /* To fix menu at left size */
-
   margin: 0 auto;
 }
 .wrapper2 {
@@ -39,11 +38,18 @@ button {
   align-items: flex-start;
 }
 
+@media #{$laptop-up} {
+  main {
+    margin-right: -5%;
+  }
+}
+
 .main {
   font-family: var(--font-rounded-elegance);
   font-family: var(--font-rounded-elegance);
   max-width: 750px;
-  margin: 0 auto;
+  align-self: center;
+  // margin-right: -100px;
   height: 100%;
   display: flex;
   flex-direction: column;

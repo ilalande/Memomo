@@ -1,0 +1,61 @@
+@import '/styles/colorsVariables.scss';
+@import '/styles/responsive.scss';
+
+.burgernav {
+  position: fixed;
+  right: 0;
+  border: 1px solid white;
+}
+
+.burgernav button {
+  color: white;
+  padding: 0 1rem;
+  font-size: 2.4rem;
+  border: 0;
+}
+
+.burgerHidden {
+  display: none;
+}
+.burgerOpen {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.burgernav ul {
+  padding: 1rem;
+  list-style-type: none;
+  padding: 0;
+}
+.burgernav li {
+  padding: 0.4rem;
+  color: $light-color-white;
+  padding: 1rem;
+}
+.burgernav img {
+  margin-right: 0.3rem;
+}
+
+.burgernav li:hover {
+  border: 1px solid white;
+  color: white;
+  background-color: $lighter-color-dark;
+}
+.burgernav a {
+  color: $light-color-white;
+  color: white;
+  width: 100%;
+  display: flex;
+}
+.activeLink {
+  font-weight: bold;
+  border: 1px solid white;
+  background-color: $lighter-color-dark;
+}
+
+@media #{$laptop-up} {
+  .burgernav {
+    display: none;
+  }
+}

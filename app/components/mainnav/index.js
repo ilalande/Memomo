@@ -3,36 +3,9 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../../styles/Nav.module.scss';
-import { useEffect } from 'react';
+import { navItems } from '../../../utils/routes';
 
 // const dataList=transform(data);
-
-const navItems = [
-  {
-    name: 'Home',
-    image: '/home.svg',
-    path: '/',
-    id: 0,
-  },
-  {
-    name: 'A propos',
-    image: '/help-circle.svg',
-    path: '/about',
-    id: 1,
-  },
-  {
-    name: 'Acessibilité',
-    path: '/accessibilite',
-    image: '/user.svg',
-    id: 2,
-  },
-  {
-    name: 'Mentions légales',
-    path: '/mentionslegales',
-    image: '/info.svg',
-    id: 3,
-  },
-];
 
 export default function MainNav() {
   let pathname = usePathname() || '/';

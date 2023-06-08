@@ -1,28 +1,30 @@
 @import '/styles/colorsVariables.scss';
 @import '/styles/responsive.scss';
-.nav {
+.boardnav {
   font-family: var(--font-rounded-elegance);
   margin-left: 2rem;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+  display: none;
 }
-.nav ul {
+.boardnav ul {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
-.nav li {
+.boardnav li {
   padding: 0.4rem;
   color: $light-color-white;
   margin: 0 0 0s.5rem 0;
-  padding: 1rem;
+  padding: 0.5rem 1.5rem 0.5rem 0.8rem;
 }
 
-.nav img {
+.boardnav img {
   margin-right: 0.3rem;
   color: $light-color-white;
 }
 
-.nav a {
+.boardnav a {
   color: $light-color-white;
   padding: 0;
   /* To manage disposition with image */
@@ -30,11 +32,11 @@
   display: flex;
 }
 
-.nav li:hover {
+.boardnav li:hover {
   border: 1px solid white;
   background-color: $lighter-color-dark;
 }
-.nav ul {
+.boardnav ul {
   padding: 1rem;
   list-style-type: none;
   display: flex;
@@ -53,5 +55,8 @@
   }
   .boardLink {
     font-size: 0.8rem;
+  }
+  .boardnav {
+    display: flex;
   }
 }

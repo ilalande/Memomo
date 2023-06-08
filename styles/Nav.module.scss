@@ -3,11 +3,12 @@
 .nav {
   font-family: var(--font-rounded-elegance);
   margin-left: 2rem;
+  display: none;
 }
 .nav li {
   padding: 0.4rem;
   color: $light-color-white;
-  margin: 0 0 0s.5rem 0;
+  margin: 0 0 0.5rem 0;
   padding: 1rem;
 }
 
@@ -47,5 +48,9 @@
   }
   .boardLink {
     font-size: 0.8rem;
+  }
+
+  .nav {
+    display: flex;
   }
 }

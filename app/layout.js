@@ -1,5 +1,6 @@
 import MainNav from './components/mainnav/index';
 import BoardNav from './components/boardNav/index';
+import BurgerMenu from './components/burgerMenu/index';
 import './globals.scss';
 
 // Defining font
@@ -53,6 +54,10 @@ const PrimaryLayout = ({ children }) => {
         <div
           className={`${roundedElegance.variable} ${tondu.variable} mainWrapper`}
         >
+          <div className='burgermenu'>
+            <BurgerMenu />
+          </div>
+
           <div className='wrapper2'>
             {children}
             <MainNav />

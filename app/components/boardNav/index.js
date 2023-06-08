@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../../styles/BoardNav.module.scss';
-import { getBoardsRequest } from 'lib/requestsDatas';
+import { getBoardsRequest } from '@utils/requestsDatas';
 
 // const dataList=transform(data);
 
@@ -11,7 +11,7 @@ export default async function BoardNav() {
   const { data } = await getBoardsRequest();
   return (
     <nav
-      className={styles.nav}
+      className={styles.boardnav}
       role='navigation'
       aria-label='Accès aux tableaux existants'
     >
