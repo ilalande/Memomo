@@ -2,16 +2,29 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../../../styles/BurgerMenu.module.scss';
 import { navItems } from '../../../utils/routes';
 
-export default function BurgerMenu() {
+export default function BurgerMenu({ boards }) {
   const [isExpanded, setIsExpanded] = useState(false);
   let pathname = usePathname() || '/';
 
-  const handleClick = () => {
-    console.log('bip');
+  useEffect(() => {
+    setIsExpanded(false);
+  }, [pathname]);
+
+  // useEffect(() => {
+  //   //Way to handle escape button to close menu found here :
+  //   //  https://dev.to/harshhhdev/building-an-animated-and-accessible-command-menu-in-react-5daj
+  //   window.addEventListener('keydown', navigation);
+  //   return () => window.removeEventListener('keydown', navigation);
+  // }, [navigation]);
+
+  const handleClick = (e) => {
+    // if (e.keyCode === 27) {
+    //   console.log('Close');
+    // }
     setIsExpanded((prev) => {
       return !prev;
     });
@@ -37,7 +50,7 @@ export default function BurgerMenu() {
         <div>
           <button
             aria-label='cacher le menu de navigation'
-            onClick={handleClick}
+            onClick={(e) => handleClick(e)}
             aria-expanded='true'
           >
             ×
@@ -62,11 +75,46 @@ export default function BurgerMenu() {
                       aria-hidden='true'
                     />
                   ) : null}
-                  <span>{item.name}</span>
+                  {item.name}
                 </Link>
               </li>
             );
           })}
+          <li role='listitem'>
+            <span>
+              <Image
+                src='/board.svg'
+                width={25}
+                height={25}
+                alt=''
+                aria-hidden='true'
+              />
+              Boards :
+            </span>
+            <ul role='list'>
+              {boards ? (
+                boards.map((board) => {
+                  return (
+                    <li
+                      className={
+                        pathname === `/${board.board_name}`
+                          ? styles.activeLink
+                          : null
+                      }
+                      key={board.id}
+                      role='listitem'
+                    >
+                      <Link href={`/${board.board_name}`}>
+                        &#8594; {board.board_name}
+                      </Link>
+                    </li>
+                  );
+                })
+              ) : (
+                <></>
+              )}
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>

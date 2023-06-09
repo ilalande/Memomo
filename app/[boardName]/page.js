@@ -1,4 +1,5 @@
 import styles from '@styles/Board.module.scss';
+import BurgerMenu from '../components/burgerMenu/index';
 import {
   getBoardsRequest,
   getBoardByNameRequest,
@@ -42,7 +43,7 @@ export default async function Board({ params }) {
   //   await deleteMemoRequest(id);
   //   await getMemosDatas(boardDatas.id);
   // };
-
+  const { data } = await getBoardsRequest();
   return (
     <>
       <div className={styles.main}>
@@ -55,6 +56,8 @@ export default async function Board({ params }) {
             <PlusMemoButton boardDatas={boardDatas} colorId='1' />
             <PlusMemoButton boardDatas={boardDatas} colorId='2' />
             <PlusMemoButton boardDatas={boardDatas} colorId='3' />
+
+            <BurgerMenu boards={data} />
           </header>
         </div>
         <div className={styles.boardarea}>

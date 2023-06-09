@@ -1,14 +1,15 @@
+'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import styles from '../../../styles/BoardNav.module.scss';
 import { getBoardsRequest } from '@utils/requestsDatas';
 
 // const dataList=transform(data);
 
-export default async function BoardNav() {
-  // // API calls on page loading : loading boards (Server Side Component)
-  // https://nextjs.org/docs/app/building-your-application/data-fetching/fetching
-  const { data } = await getBoardsRequest();
+export default function BoardNav({ boards }) {
+  let pathname = usePathname() || '/';
+
   return (
     <nav
       className={styles.boardnav}
@@ -16,10 +17,16 @@ export default async function BoardNav() {
       aria-label='Accès aux tableaux existants'
     >
       <ul role='list'>
-        {data ? (
-          data.map((board) => {
+        {boards ? (
+          boards.map((board) => {
             return (
-              <li className={styles.boardLink} key={board.id} role='listitem'>
+              <li
+                className={
+                  pathname === `/${board.board_name}` ? styles.activeLink : null
+                }
+                key={board.id}
+                role='listitem'
+              >
                 <Link href={`/${board.board_name}`}>
                   <Image
                     src='/bookmark.svg'

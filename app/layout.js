@@ -1,7 +1,7 @@
 import MainNav from './components/mainnav/index';
 import BoardNav from './components/boardNav/index';
-import BurgerMenu from './components/burgerMenu/index';
 import './globals.scss';
+import { getBoardsRequest } from '@utils/requestsDatas';
 
 // Defining font
 import localFont from 'next/font/local';
@@ -47,22 +47,22 @@ export const metadata = {
     },
   },
 };
-const PrimaryLayout = ({ children }) => {
+const PrimaryLayout = async ({ children }) => {
+  // // API calls on page loading : loading boards (Server Side Component)
+  // https://nextjs.org/docs/app/building-your-application/data-fetching/fetching
+  const { data } = await getBoardsRequest();
+
   return (
     <html lang='fr-FR'>
       <body>
         <div
           className={`${roundedElegance.variable} ${tondu.variable} mainWrapper`}
         >
-          <div className='burgermenu'>
-            <BurgerMenu />
-          </div>
-
           <div className='wrapper2'>
             {children}
             <MainNav />
           </div>
-          <BoardNav />
+          <BoardNav boards={data} />
         </div>
       </body>
     </html>

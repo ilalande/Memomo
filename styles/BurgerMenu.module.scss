@@ -3,8 +3,10 @@
 
 .burgernav {
   position: fixed;
-  right: 0;
+  right: 2px;
   border: 1px solid white;
+  border: 0;
+  top: 2px;
 }
 
 .burgernav button {
@@ -21,32 +23,38 @@
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
+  padding: 1rem 0 3rem 3rem;
+  background-color: $menu-color-dark;
 }
 
 .burgernav ul {
-  padding: 1rem;
+  padding: 0.5rem;
   list-style-type: none;
-  padding: 0;
 }
 .burgernav li {
-  padding: 0.4rem;
   color: $light-color-white;
-  padding: 1rem;
 }
+
 .burgernav img {
   margin-right: 0.3rem;
 }
 
-.burgernav li:hover {
+.burgernav a:hover {
+  width: 100%;
   border: 1px solid white;
   color: white;
   background-color: $lighter-color-dark;
 }
-.burgernav a {
+.burgernav a,
+.burgernav span {
   color: $light-color-white;
   color: white;
   width: 100%;
   display: flex;
+  padding: 0.5rem;
+}
+.burgernav span {
+  font-weight: bold;
 }
 .activeLink {
   font-weight: bold;

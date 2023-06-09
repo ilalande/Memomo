@@ -20,7 +20,6 @@ export default function AddBoard({ boardsList }) {
     let existingBoardEntered = false;
     console.log(boardNameEntered);
     if (boardNameEntered === '') {
-      console.log('bip');
       setError(true);
       return;
     } else setError(false);
