@@ -23,4 +23,10 @@ export const navItems = [
     image: '/info.svg',
     id: 3,
   },
+  {
+    name: 'Contact',
+    path: '/contact',
+    image: '/mail.svg',
+    id: 4,
+  },
 ];

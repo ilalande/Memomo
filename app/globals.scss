@@ -17,7 +17,29 @@ a:hover {
 }
 a {
   text-decoration: none;
+  color: $light-color-white;
 }
+
+p a {
+  text-decoration: underline;
+}
+
+main {
+  margin: 0.2rem;
+}
+
+main h1 {
+  margin: 0.5rem auto;
+  font-size: 2.5rem;
+}
+
+main h2 {
+  margin: 1.3rem 0 0.2rem 0rem;
+}
+main p {
+  margin: 0.2rem 0;
+}
+
 button {
   background: transparent;
 }
@@ -54,7 +76,6 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 .logoHome {
   @extend .logo;

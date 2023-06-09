@@ -6,6 +6,9 @@
   margin: 0.5rem;
   background-color: $second-color-lighter;
 }
+.logo a {
+  color: $third-color-darker;
+}
 .plusButton {
   border: 5px solid;
   font-weight: 900;
