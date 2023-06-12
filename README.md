@@ -1,38 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MEMOMO - reminder board
 
-## Getting Started
+## Contents
 
-First, run the development server:
+1. [General information](#General-information)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
+4. [Author](#author)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## General information
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This WebApp is a memo board. It allows you to create lists of various memos.
+This WebApp was developed as project during a self-training period in NextJS 13 (the app folder, server components), in [web site eco-design](https://github.com/cnumr/best-practices) and in development respecting the accessibility criteria of the [french RGAA](https://accessibilite.numerique.gouv.fr/methode/introduction/) - implemented after taking the [Access42 training](https://formations.access42.net/formations/formation-developpement-accessible/).
+The front end has been developed on [NextJS](https://nextjs.org/). The [backend is available on github](https://github.com/ilalande/memomoBack) (it was developed in ExpressJS and TypeScript).
+This application has therefore been developed for educational purposes and has never been launched in production.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Technologies
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This project is developed in **NextJS**.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**Main libraries used:**
+In order to respect the [criteria for an eco-responsible site](https://github.com/cnumr/best-practices).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Axios` was used to manage the application's API calls ("request" folders for the call and Pages/api to view the APIs called by http://localhost3000/api).
+- TypeScript` will be used in a future version.
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+### To start a project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Clone this repository and the [Back part](https://github.com/ilalande/memomoBack/blob/main/README.md), go inside
+  Run the npm run build command
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Configure the .env file (add it to gitignore)
 
-## Deploy on Vercel
+- Open (http://localhost:3000) with a browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### List of commands and their meaning
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- npm run build` : Initialize frontend, backend and tools.
+- `npm run dev` : Start development server
+
+## Author
+
+[Juliane Casier](https://www.linkedin.com/in/juliane-casier-bb642832/)
+
+Translated with www.DeepL.com/Translator (free version)
