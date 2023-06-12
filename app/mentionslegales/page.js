@@ -26,8 +26,9 @@ export default async function MentionsLegales() {
           au printemps 2023.
         </p>
         <p>
-          L'objectif de ce site est de mettre en pratique NextJS13 et les
-          serveurs components ainsi que les principes du{' '}
+          L'objectif de ce site est de mettre en pratique{' '}
+          <Link href='https://nextjs.org/'>NextJS13</Link> et les serveurs
+          components ainsi que les principes du
           <Link href='https://accessibilite.numerique.gouv.fr/methode/introduction/'>
             RGAA
           </Link>{' '}
@@ -36,7 +37,7 @@ export default async function MentionsLegales() {
         <p>Il ne récupère aucun cookies </p>
         <p>
           Les icônes utilisées proviennent de{' '}
-          <Link href='https://feathericons.com/?query=mail'>feather</Link>{' '}
+          <Link href='https://feathericons.com/?query=mail'>feather.</Link>{' '}
         </p>
       </main>
     </>

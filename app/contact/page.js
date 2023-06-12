@@ -1,25 +1,156 @@
-import Link from 'next/link';
+'use client';
+import { useEffect, useState } from 'react';
 import '../globals.scss';
-import BurgerMenu from '../components/burgerMenu/index';
-import { getBoardsRequest } from '../../utils/requestsDatas';
+import styles from '../../styles/Contact.module.scss';
+import Dialog from '../components/dialog/index';
 
-export default async function MentionsLegales() {
-  const { data } = await getBoardsRequest();
+export default function Contact() {
+  const [error, setError] = useState(null);
+  const [formSentOk, setFormSentOk] = useState(false);
+  const [formData, setFormData] = useState({
+    surname: '',
+    email: '',
+    message: '',
+  });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendMail = (e) => {
+    setError((prev) => {
+      return null;
+    });
+    e.preventDefault();
+    if (formData.surname === '') {
+      setError((prev) => {
+        return {
+          ...prev,
+          errorSurname: "Veuillez entrer votre nom s'il vous plait",
+        };
+      });
+    }
+    if (formData.message === '') {
+      setError((prev) => {
+        return {
+          ...prev,
+          errorMessage: "Veuillez entrer un message s'il vous plait",
+        };
+      });
+    }
+    if (formData.email === '') {
+      setError((prev) => {
+        return {
+          ...prev,
+          errorEmail:
+            "Veuillez entrer votre email (sous la forme nom@domaine.fr) s'il vous plait",
+        };
+      });
+    }
+    if (
+      formData.email === '' ||
+      formData.message === '' ||
+      formData.surname === ''
+    ) {
+      return;
+    } else {
+      setFormSentOk((prev) => {
+        return true;
+      });
+      setFormData((prev) => {
+        return {
+          surname: '',
+          email: '',
+          message: '',
+        };
+      });
+    }
+  };
 
   return (
     <>
-      <header role='banner' className='burgermenu'>
-        <p className='logo'>
-          <Link href='/' title="retour vers la page d'accueil">
-            MEMOMO
-          </Link>
-        </p>
-        <BurgerMenu boards={data} />
-      </header>
-      <main className='main'>
-        <h1>Contact</h1>
-        <form></form>
-      </main>
+      {formSentOk ? (
+        <Dialog setFormSentOk={setFormSentOk} />
+      ) : (
+        <>
+          <h1>Contact</h1>
+          <p className={styles.formGenHelp}>
+            Tous les champs sont obligatoires
+          </p>
+          <p className={styles.formGenHelp}>
+            Ce formulaire ne fonctionne pas (n'envoie pas de mail)
+          </p>
+          <div className={styles.contactForm}>
+            <form id='contactForm' onSubmit={(e) => sendMail(e)}>
+              <p>
+                <label htmlFor='name' className={styles.formLabelTitle}>
+                  Nom
+                </label>
+                <input
+                  type='text'
+                  id='name'
+                  aria-required='true'
+                  // aria-describedby='helpEmail'
+                  autoComplete='name'
+                  value={formData.surname}
+                  onChange={handleChange}
+                  name='surname'
+                />
+              </p>
+              {error ? (
+                <p className='error' id='error'>
+                  {error.errorSurname}
+                </p>
+              ) : null}
+              <p>
+                <label htmlFor='email'>
+                  <span className={styles.formLabelTitle}>Email</span>
+                  <span id='helpEmail' className={styles.formLabelHelp}>
+                    Format attendu : nom@domaine.fr
+                  </span>
+                </label>
+                <input
+                  type='email'
+                  id='email'
+                  aria-required='true'
+                  aria-describedby='helpEmail'
+                  autoComplete='email'
+                  value={formData.email}
+                  onChange={handleChange}
+                  name='email'
+                />
+              </p>
+              {error ? (
+                <p className='error' id='error'>
+                  {error.errorEmail}
+                </p>
+              ) : null}
+              <p>
+                <label htmlFor='message' className={styles.formLabelTitle}>
+                  Votre message
+                </label>
+                <textarea
+                  id='message'
+                  aria-required='true'
+                  value={formData.message}
+                  onChange={handleChange}
+                  name='message'
+                ></textarea>
+              </p>
+              {error ? (
+                <p className='error' id='error'>
+                  {error.errorMessage}
+                </p>
+              ) : null}
+              <button
+                title='Envoyer le message par mail'
+                onClick={(e) => sendMail(e)}
+              >
+                Envoyer (not working)
+              </button>
+            </form>
+          </div>
+        </>
+      )}
     </>
   );
 }

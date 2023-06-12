@@ -5,28 +5,23 @@ export const navItems = [
     path: '/',
     id: 0,
   },
-  {
-    name: 'A propos',
-    image: '/help-circle.svg',
-    path: '/about',
-    id: 1,
-  },
+
   {
     name: 'Acessibilité',
     path: '/accessibilite',
     image: '/user.svg',
-    id: 2,
+    id: 1,
   },
   {
     name: 'Mentions légales',
     path: '/mentionslegales',
     image: '/info.svg',
-    id: 3,
+    id: 2,
   },
   {
     name: 'Contact',
     path: '/contact',
     image: '/mail.svg',
-    id: 4,
+    id: 3,
   },
 ];

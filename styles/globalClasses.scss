@@ -8,6 +8,7 @@
 }
 .logo a {
   color: $third-color-darker;
+  text-decoration: none;
 }
 .plusButton {
   border: 5px solid;
@@ -15,4 +16,8 @@
   font-family: var(--font-tondu);
   border-radius: 2px;
   padding: 0.5rem;
+}
+.error {
+  padding-left: 0.5rem;
+  color: $error-color;
 }

@@ -23,20 +23,21 @@ export default async function Accessibilite() {
           Ce site a été développé afin de se former à la mise en oeuvre des 106
           critères du
           <Link href='https://accessibilite.numerique.gouv.fr/methode/introduction/'>
-            {' '}
             référentiel RGAA
-          </Link>{' '}
+          </Link>
           suite à une
           <Link href='https://formations.access42.net/formations/formation-developpement-accessible/'>
-            formation "développer des sites web
-          </Link>{' '}
-          d'Access42".
+            formation "développer des sites web d'Access42".
+          </Link>
         </p>
         <h2>Déclaration d'accessibilité</h2>
         <p>
           Afin de respecter la loi, une déclaration d'accessibilité est
           nécessaire conformément aux{' '}
-          <Link href='https://accessibilite.numerique.gouv.fr/obligations/declaration-accessibilite/'>
+          <Link
+            title='déclaration de conformité au RGAA sur le site du gouvernement'
+            href='https://accessibilite.numerique.gouv.fr/obligations/declaration-accessibilite/'
+          >
             prescriptions du gouvernement.
           </Link>
         </p>
@@ -52,7 +53,7 @@ export default async function Accessibilite() {
         </p>
         <h2>Contact</h2>
         <p>
-          N'hésitez pas à{' '}
+          N'hésitez pas à
           <Link href='/contact'>contacter l'autrice de ce site</Link>
         </p>
       </main>

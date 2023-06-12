@@ -60,12 +60,6 @@ button {
   align-items: flex-start;
 }
 
-@media #{$laptop-up} {
-  main {
-    margin-right: -5%;
-  }
-}
-
 .main {
   font-family: var(--font-rounded-elegance);
   font-family: var(--font-rounded-elegance);
@@ -76,6 +70,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .logoHome {
   @extend .logo;
@@ -94,6 +89,9 @@ button {
   border: 0;
 }
 
-img {
-  fill: white;
+//To manage shift because of boardNavBar on desktop
+@media #{$laptop-up} {
+  main {
+    margin-right: -5%;
+  }
 }

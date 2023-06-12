@@ -1,10 +1,7 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
-
 import { useRouter } from 'next/navigation';
 import styles from '../../../styles/AddBoard.module.scss';
-
 import { addBoardsRequest } from '../../../utils/requestsDatas';
 
 export default function AddBoard({ boardsList }) {
@@ -18,7 +15,6 @@ export default function AddBoard({ boardsList }) {
 
   const addBoard = async () => {
     let existingBoardEntered = false;
-    console.log(boardNameEntered);
     if (boardNameEntered === '') {
       setError(true);
       return;
