@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../../../styles/AddBoard.module.scss';
 import { addBoardsRequest } from '../../../utils/requestsDatas';
@@ -9,19 +9,23 @@ export default function AddBoard({ boardsList }) {
   const [boardNameEntered, setboardNameEntered] = useState('');
   const [error, setError] = useState(false);
 
-  const addBoard = async () => {
+  const addBoard = async (e) => {
+    e.preventDefault();
     let existingBoardEntered = false;
+    // To mange error showing (accessiblity matter)
     if (boardNameEntered === '') {
-      setError(true);
+      setError((prev) => {
+        return true;
+      });
       return;
-    } else setError(false);
-    // if a board with boardNameEntered exists, nothing happens (just the link).
-    //if no existing board is found, one is created in database
-    //if an existing board exists, the function does nothing, only lik is applied
+    } else
+      setError((prev) => {
+        return false;
+      });
+
     boardsList.map((board) => {
       if (boardNameEntered === board.board_name) {
         existingBoardEntered = true;
-        return;
       }
     });
     if (!existingBoardEntered) {
