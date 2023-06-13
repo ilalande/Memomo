@@ -38,6 +38,7 @@ export default function PlusMemoButton({ boardDatas, colorId, memosDatas }) {
       <div className={styles.plusButtonOnBoard}>
         <button
           type='button'
+          role='button'
           className={
             colorId === '1'
               ? styles.addMemo1

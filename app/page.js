@@ -1,5 +1,5 @@
 import './globals.scss';
-import BurgerMenu from './components/burgerMenu/index';
+import Header from './components/header/index';
 import AddBoard from './components/addBoard';
 import { getBoardsRequest } from '../utils/requestsDatas';
 
@@ -11,9 +11,8 @@ export default async function Home() {
 
   return (
     <>
-      <div className='burgermenu'>
-        <BurgerMenu boards={boardsList} />
-      </div>
+      <Header boardDatas={boardsList} pageType='home' />
+
       {!boardsList ? (
         <main className='main' role='main'>
           <h2>Problème de chargement du serveur</h2>

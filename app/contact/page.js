@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import '../globals.scss';
 import styles from '../../styles/Contact.module.scss';
 import Dialog from '../components/dialog/index';
@@ -12,6 +12,11 @@ export default function Contact() {
     email: '',
     message: '',
   });
+  // To handle focus and make form accessible 
+  const surnameRef = useRef(null);
+  const messageRef = useRef(null);
+  const emailRef = useRef(null);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -28,15 +33,10 @@ export default function Contact() {
           errorSurname: "Veuillez entrer votre nom s'il vous plait",
         };
       });
+      surnameRef.current.focus();
+      return;
     }
-    if (formData.message === '') {
-      setError((prev) => {
-        return {
-          ...prev,
-          errorMessage: "Veuillez entrer un message s'il vous plait",
-        };
-      });
-    }
+
     if (formData.email === '') {
       setError((prev) => {
         return {
@@ -45,25 +45,30 @@ export default function Contact() {
             "Veuillez entrer votre email (sous la forme nom@domaine.fr) s'il vous plait",
         };
       });
-    }
-    if (
-      formData.email === '' ||
-      formData.message === '' ||
-      formData.surname === ''
-    ) {
+      emailRef.current.focus();
       return;
-    } else {
-      setFormSentOk((prev) => {
-        return true;
-      });
-      setFormData((prev) => {
+    }
+    if (formData.message === '') {
+      setError((prev) => {
         return {
-          surname: '',
-          email: '',
-          message: '',
+          ...prev,
+          errorMessage: "Veuillez entrer un message s'il vous plait",
         };
       });
+      messageRef.current.focus();
+      return;
     }
+
+    setFormSentOk((prev) => {
+      return true;
+    });
+    setFormData((prev) => {
+      return {
+        surname: '',
+        email: '',
+        message: '',
+      };
+    });
   };
 
   return (
@@ -73,7 +78,7 @@ export default function Contact() {
       ) : (
         <>
           <h1>Contact</h1>
-          <p className={styles.formGenHelp}>
+          <p className={`${styles.formGenHelp}  ${error ? 'error' : ''}`}>
             Tous les champs sont obligatoires
           </p>
           <p className={styles.formGenHelp}>
@@ -94,6 +99,7 @@ export default function Contact() {
                   value={formData.surname}
                   onChange={handleChange}
                   name='surname'
+                  ref={surnameRef}
                 />
               </p>
               {error ? (
@@ -117,6 +123,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   name='email'
+                  ref={emailRef}
                 />
               </p>
               {error ? (
@@ -134,6 +141,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   name='message'
+                  ref={messageRef}
                 ></textarea>
               </p>
               {error ? (

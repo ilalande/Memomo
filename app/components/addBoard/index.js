@@ -9,10 +9,6 @@ export default function AddBoard({ boardsList }) {
   const [boardNameEntered, setboardNameEntered] = useState('');
   const [error, setError] = useState(false);
 
-  const saveBoardName = (e) => {
-    setboardNameEntered(e.target.value);
-  };
-
   const addBoard = async () => {
     let existingBoardEntered = false;
     if (boardNameEntered === '') {
@@ -44,7 +40,11 @@ export default function AddBoard({ boardsList }) {
           type='text'
           id='boardName'
           className={styles.boardNameEnter}
-          onBlur={saveBoardName}
+          onChange={(e) => {
+            setboardNameEntered((prev) => {
+              return e.target.value;
+            });
+          }}
           aria-required='true '
           title='Entrez le nom du tableau'
           aria-describedby='error'
@@ -57,6 +57,7 @@ export default function AddBoard({ boardsList }) {
         ) : null}
         <button
           type='button'
+          role='button'
           className={styles.plusButtonHome}
           onClick={addBoard}
           title="Aller sur le tableau et le créer s'il n'existe pas"
