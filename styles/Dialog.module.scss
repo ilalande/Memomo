@@ -1,0 +1,21 @@
+@import '/styles/colorsVariables.scss';
+@import '/styles/globalClasses.scss';
+@import '/styles/responsive.scss';
+
+.dialog {
+  // To fix : var not working
+  background-color: hsl(228, 10%, 28%);
+  color: var(--lightColorWhite);
+  margin: auto;
+}
+.dialog button {
+  border: 0;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1rem;
+}
+.dialog button:hover {
+  cursor: pointer;
+}

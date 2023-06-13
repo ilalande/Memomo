@@ -1,11 +1,12 @@
 import styles from '@styles/Board.module.scss';
+import Header from '../components/header/index';
 import {
   getBoardsRequest,
   getBoardByNameRequest,
   getMemosByBoardId,
-} from '../../lib/requestsDatas';
+} from '../../utils/requestsDatas';
 import MemoCard from '../components/memoCard';
-import PlusMemoButton from '../components/plusMemoButton/index';
+
 import Link from 'next/link';
 
 // to statically generate routes at build time instead of on-demand at request time.
@@ -42,7 +43,7 @@ export default async function Board({ params }) {
   //   await deleteMemoRequest(id);
   //   await getMemosDatas(boardDatas.id);
   // };
-
+  const { data } = await getBoardsRequest();
   return (
     <>
       <div className={styles.main}>
@@ -50,12 +51,7 @@ export default async function Board({ params }) {
           <nav role='navigation' aria-label='Accès rapide' className='sr-only'>
             <Link href={`${boardName}#main`}>Contenu principal</Link>
           </nav>
-          <header role='banner'>
-            <h1>{boardName}</h1>
-            <PlusMemoButton boardDatas={boardDatas} colorId='1' />
-            <PlusMemoButton boardDatas={boardDatas} colorId='2' />
-            <PlusMemoButton boardDatas={boardDatas} colorId='3' />
-          </header>
+          <Header pageType='board' boardDatas={boardDatas} />
         </div>
         <div className={styles.boardarea}>
           {memosDatas ? (

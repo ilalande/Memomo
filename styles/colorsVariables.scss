@@ -1,16 +1,21 @@
 $main-color-dark: hsl(223, 8%, 18%);
+$lighter-color-dark: hsl(228, 10%, 28%);
+$menu-color-dark: hsl(220, 4%, 14%);
 $second-color-lighter: hsl(64, 82%, 72%);
 $third-color-darker: hsl(249, 64%, 56%);
 $light-color-white: hsl(0, 0%, 100%);
+$error-color: hsl(1, 99%, 74%);
 $memo-1: hsl(191, 51%, 54%);
 $memo-2: hsl(1, 99%, 74%);
 $memo-3: hsl(64, 82%, 72%);
 
 :export {
   mainColorDark: $main-color-dark;
+  lighterDark: $lighter-color-dark;
   secondColorLighter: $second-color-lighter;
   thirdColorDarker: $third-color-darker;
   lightColorWhite: $light-color-white;
+  errorColor: $error-color;
   memo1: $memo-1;
   memo2: $memo-2;
   memo3: $memo-3;

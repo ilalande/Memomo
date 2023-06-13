@@ -18,9 +18,6 @@
   display: block;
   border: 2px solid $third-color-darker;
 }
-.error {
-  padding-left: 0.5rem;
-}
 
 .plusButtonHome {
   @extend .plusButton;

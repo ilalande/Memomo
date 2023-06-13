@@ -1,6 +1,7 @@
 import './globals.scss';
+import Header from './components/header/index';
 import AddBoard from './components/addBoard';
-import { getBoardsRequest } from '../lib/requestsDatas';
+import { getBoardsRequest } from '../utils/requestsDatas';
 
 export default async function Home() {
   let resBoards;
@@ -10,6 +11,8 @@ export default async function Home() {
 
   return (
     <>
+      <Header boardDatas={boardsList} pageType='home' />
+
       {!boardsList ? (
         <main className='main' role='main'>
           <h2>Problème de chargement du serveur</h2>

@@ -23,6 +23,15 @@
   color: $second-color-lighter;
   padding: 1rem;
 }
+
+.boardBurger {
+  position: fixed;
+  right: 2px;
+  top: 0;
+  border: 1px solid white;
+  border: 0;
+}
+
 /* BOARD AREA : existing memod znd possibility to handle them */
 .boardarea {
   min-width: 200px;

@@ -6,10 +6,18 @@
   margin: 0.5rem;
   background-color: $second-color-lighter;
 }
+.logo a {
+  color: $third-color-darker;
+  text-decoration: none;
+}
 .plusButton {
   border: 5px solid;
   font-weight: 900;
   font-family: var(--font-tondu);
   border-radius: 2px;
   padding: 0.5rem;
+}
+.error {
+  padding-left: 0.5rem;
+  color: $error-color;
 }
