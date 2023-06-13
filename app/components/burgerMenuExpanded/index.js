@@ -21,7 +21,7 @@ export default function BurgerMenuExpanded({
   let pathname = usePathname() || '/';
 
   return (
-    <>
+    <div className={styles.burgerOpen}>
       <div>
         <button
           role='button'
@@ -93,6 +93,6 @@ export default function BurgerMenuExpanded({
           </ul>
         </li>
       </ul>
-    </>
+    </div>
   );
 }

@@ -22,9 +22,8 @@ export default function BurgerButton({ boards }) {
       return !prev;
     });
   };
-
+  // To close burger menu if escape is pressed - according to ARIA pattern
   const handleKeyPress = (event) => {
-    // To close burger menu if escape is pressed - according to ARIA pattern
     if (event.key === 'Escape') {
       setMenuExpanded((prev) => {
         return false;
