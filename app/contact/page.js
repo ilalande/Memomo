@@ -1,21 +1,32 @@
 'use client';
-import { useRef, useState } from 'react';
+
+import { useRef, useState, useEffect } from 'react';
 import '../globals.scss';
 import styles from '../../styles/Contact.module.scss';
 import Dialog from '../components/dialog/index';
+import FocusLock from 'react-focus-lock';
 
 export default function Contact() {
   const [error, setError] = useState(null);
-  const [formSentOk, setFormSentOk] = useState(false);
+  const [formSentOk, setFormSentOk] = useState(null);
   const [formData, setFormData] = useState({
     surname: '',
     email: '',
     message: '',
   });
-  // To handle focus and make form accessible 
+  // To handle focus and make form accessible
   const surnameRef = useRef(null);
   const messageRef = useRef(null);
   const emailRef = useRef(null);
+
+  //To handle focus management when dialog is closed (focus on send button)
+  const sendButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (formSentOk === false) {
+      sendButtonRef.current.focus();
+    }
+  }, [formSentOk]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -74,7 +85,11 @@ export default function Contact() {
   return (
     <>
       {formSentOk ? (
-        <Dialog setFormSentOk={setFormSentOk} />
+        <FocusLock>
+          <div className={styles.modalOverlay}>
+            <Dialog setFormSentOk={setFormSentOk} />
+          </div>
+        </FocusLock>
       ) : (
         <>
           <h1>Contact</h1>
@@ -152,6 +167,7 @@ export default function Contact() {
               <button
                 title='Envoyer le message par mail'
                 onClick={(e) => sendMail(e)}
+                ref={sendButtonRef}
               >
                 Envoyer (not working)
               </button>

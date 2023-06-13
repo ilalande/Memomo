@@ -10,6 +10,15 @@ export default function Dialog({ setFormSentOk }) {
     closeDialogButtonRef.current.focus();
   }, []);
 
+  // To close burger menu if escape is pressed - according to ARIA pattern
+  const handleKeyPress = (event) => {
+    if (event.key === 'Escape') {
+      setFormSentOk((prev) => {
+        return false;
+      });
+    }
+  };
+
   return (
     <>
       <dialog
@@ -18,6 +27,7 @@ export default function Dialog({ setFormSentOk }) {
         className={styles.dialog}
         aria-modal='true'
         aria-labelledby='dialogTitle'
+        onKeyDown={(e) => handleKeyPress(e)}
       >
         <button
           ref={closeDialogButtonRef}
